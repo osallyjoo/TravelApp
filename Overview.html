@@ -9,8 +9,8 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
  crossorigin="anonymous"></script>
-	<!-- Google map library tool thingy-->
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&callback=initMap"></script>
+	
+	
  	
 </head>
 
@@ -43,14 +43,21 @@
 					</div>
 					<div id="instagramBox" class="overviewContent">Weather
 					</div>
-					<div id="instagramBox" class="overviewContent">Google Maps
+					<div id="googleBox" class="overviewContent">Google Maps
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- This is just a test element feel free to move it around (please note that the JS is calling the element with an id of 'map') -->
+	<div id="map" class = "row" style="height:400px; width:100%;"></div>
 </div>
 
+
+
 <script type="text/javascript" src="logic.js"></script>
+<script src="javascript/googleMaps.js"></script> <!-- This is the googlemaps javascript file check it out! -->
+<!-- Google map library tool thingy-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&callback=initMap"></script>
 </body>
 </html>
