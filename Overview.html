@@ -6,13 +6,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
+
+	<!--jQuery-->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
- integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
- crossorigin="anonymous"></script>
+ 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+ 	crossorigin="anonymous"></script>
+
+ 	<!--Firebase-->
  	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
-	
-	
- 	
+ 	    <!--Moment-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+	<!--Simple Weather-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -37,15 +46,17 @@
 	<div class="row">
 		<div class="col-xs-3" id="recentSearches"><h4>Recent Searches</h4>
 		</div>
-		<div class="col-xs-8 col-xs-offset-1 contentBox" id="overviewBox"><h4>Content Box</h4>
+		<div class="col-xs-8 col-xs-offset-1 contentBox" id="overviewBox">
 			<div class="row">
 				<div class="col-xs-12">
-					<div id="instagramBox" class="overviewContent">Instagram
-					</div>
-					<div id="weatherBox" class="overviewContent">Weather
-					</div>
-					<div id="googleBox" class="overviewContent">Google Maps
-					</div>
+					<h4>Instagram</h4>
+						<div id="instagramBox" class="overviewContent">
+							<ul id="instafeed"></ul>
+						</div>
+					<h4>Weather</h4>
+						<div id="weatherBox" class="overviewContent"></div>
+					<h4>Google Maps</h4>
+						<div id="googleBox" class="overviewContent"></div>
 				</div>
 			</div>
 		</div>
@@ -69,6 +80,8 @@
 
 
 <script type="text/javascript" src="javascript/searchFunction.js"></script>
+<script type="text/javascript" src="javascript/weather.js"></script>
+<script type="text/javascript" src="javascript/insta.js"></script>
 <script src="javascript/googleMaps.js"></script> <!-- This is the googlemaps javascript file check it out! -->
 <!-- Google map library tool thingy-->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&callback=initMap"></script>
