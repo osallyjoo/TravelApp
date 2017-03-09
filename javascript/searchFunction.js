@@ -18,7 +18,7 @@ $("#searchBtn").on("click", function() {
     $("#overviewBox").show();
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
-
+    var map = initMap();
     var searchTerm = $("#searchTerm").val().trim();
     searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
     // push search to database
@@ -29,7 +29,8 @@ $("#searchBtn").on("click", function() {
     // next we call ALL of the API functions at once
 
     // need to call google maps API
-    // callGoogle(searchTerm);
+
+    callGoogle(map,searchTerm);
     // call instagram API
     //callInstagram(searchTerm);
     // call weather API

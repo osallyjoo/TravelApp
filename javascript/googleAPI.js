@@ -22,10 +22,7 @@ function initMap() {
     position: uluru,
     map: map
   });
-  $("#searchBtn").on("click",function(){ //added click function here in order to keep map object non-global
-  	var address = $("#searchTerm").val().trim();
-  	callGoogle(map,address);
-  });
+  return map;
 }
 
 function callGoogle(map,cityName){
