@@ -12,6 +12,22 @@ firebase.initializeApp(config);
 var db = firebase.database();
 
 // when the search button is clicked, do something
+<<<<<<< HEAD
+$("#searchBtn").on("click",function(){
+	// grab the text in the search term box
+	var searchTerm = $("#searchTerm").val().trim();
+	// push search to database
+	db.ref().push(searchTerm);
+	// update list on html page
+	$("#recentSearches").append($("<div>").html(searchTerm));
+	// need to call google maps API
+	callGoogle(searchTerm);
+	//callGoogle(searchTerm);
+	// call instagram API
+	//callInstagram(searchTerm);
+	// call weather API
+	//callWeather(searchTerm);
+=======
 $("#searchBtn").on("click", function() {
     // grab the text in the search term box
     var searchTerm = $("#searchTerm").val().trim();
@@ -33,6 +49,7 @@ $("#searchBtn").on("click", function() {
     callZomato(searchTerm);
     // call events
 
+>>>>>>> a6aa3f6c76ef72b329d75ebf92791ce4677a124d
 });
 
 // function to capitalize first letter of each word
