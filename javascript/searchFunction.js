@@ -27,7 +27,6 @@ $("#searchBtn").on("click",function(){
 	//callWeather(searchTerm);
 });
 
-// -------------------------------------------------
 // When overview nav link is clicked, 
 // show the overview div and hide others
 $("#overviewTab").on("click",function(){
@@ -35,16 +34,17 @@ $("#overviewTab").on("click",function(){
 	$("#activitiesBox").hide();
 	$("#restaurantsBox").hide();
 });
-
+// When activities nav link is clicked, 
+// show the overview div and hide others
 $("#activitiesTab").on("click",function(){
 	$("#overviewBox").hide();
 	$("#activitiesBox").show();
 	$("#restaurantsBox").hide();
 });
-
+// When restaurant nav link is clicked, 
+// show the overview div and hide others
 $("#restaurantTab").on("click",function(){
 	$("#overviewBox").hide();
 	$("#activitiesBox").hide();
 	$("#restaurantsBox").show();
 });
-// -------------------------------------------------
