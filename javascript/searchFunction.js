@@ -15,6 +15,10 @@ var db = firebase.database();
 
 $("#searchBtn").on("click", function() {
     // grab the text in the search term box
+    $("#overviewBox").show();
+    $("#activitiesBox").hide();
+    $("#restaurantsBox").hide();
+
     var searchTerm = $("#searchTerm").val().trim();
     searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
     // push search to database
@@ -27,7 +31,7 @@ $("#searchBtn").on("click", function() {
     // need to call google maps API
     // callGoogle(searchTerm);
     // call instagram API
-    // callInstagram(searchTerm);
+    //callInstagram(searchTerm);
     // call weather API
     // callWeather(searchTerm);
     // call Zomato API
