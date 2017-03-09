@@ -11,9 +11,9 @@ function callZomato(location){
 		
 		// loop over responses
 		for (i=0;i<count;i++){
-			// var restImg = response.restaurants[i].restaurant.featured_image;
-			// var restName = response.restaurants[i].restaurant.name;
-			// var restMenu = response.restaurants[i].restaurant.menu_url;
+			var restImg = response.restaurants[i].restaurant.featured_image;
+			var restName = response.restaurants[i].restaurant.name;
+			var restMenu = response.restaurants[i].restaurant.menu_url;
 			// var newRest = $("<div>")
 			// 	.append($("<p>").html(restName))
 			// 	.append($("<img>").attr("src",restImg))
