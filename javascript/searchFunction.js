@@ -26,3 +26,25 @@ $("#searchBtn").on("click",function(){
 	// call weather API
 	//callWeather(searchTerm);
 });
+
+// -------------------------------------------------
+// When overview nav link is clicked, 
+// show the overview div and hide others
+$("#overviewTab").on("click",function(){
+	$("#overviewBox").show();
+	$("#activitiesBox").hide();
+	$("#restaurantsBox").hide();
+});
+
+$("#activitiesTab").on("click",function(){
+	$("#overviewBox").hide();
+	$("#activitiesBox").show();
+	$("#restaurantsBox").hide();
+});
+
+$("#restaurantTab").on("click",function(){
+	$("#overviewBox").hide();
+	$("#activitiesBox").hide();
+	$("#restaurantsBox").show();
+});
+// -------------------------------------------------
