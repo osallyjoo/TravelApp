@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 var db = firebase.database();
 
 // when the search button is clicked, do something
+<<<<<<< HEAD
 $("#searchBtn").on("click",function(){
 	// grab the text in the search term box
 	var searchTerm = $("#searchTerm").val().trim();
@@ -20,31 +21,72 @@ $("#searchBtn").on("click",function(){
 	// update list on html page
 	$("#recentSearches").append($("<div>").html(searchTerm));
 	// need to call google maps API
+	callGoogle(searchTerm);
 	//callGoogle(searchTerm);
 	// call instagram API
 	//callInstagram(searchTerm);
 	// call weather API
 	//callWeather(searchTerm);
+=======
+$("#searchBtn").on("click", function() {
+    // grab the text in the search term box
+    var searchTerm = $("#searchTerm").val().trim();
+    searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
+    // push search to database
+    db.ref().push(searchTerm);
+    // update list on html page
+    $("#recentSearches").append($("<div>").html(searchTerm));
+    
+    // next we call ALL of the API functions at once
+
+    // need to call google maps API
+    // callGoogle(searchTerm);
+    // call instagram API
+    // callInstagram(searchTerm);
+    // call weather API
+    // callWeather(searchTerm);
+    // call Zomato API
+    callZomato(searchTerm);
+    // call events
+
+>>>>>>> a6aa3f6c76ef72b329d75ebf92791ce4677a124d
 });
 
-// -------------------------------------------------
+// function to capitalize first letter of each word
+function capitalizeFirstLetterEachWordSplitBySpace(string) {
+    var words = string.split(" ");
+    var output = "";
+    for (i = 0; i < words.length; i++) {
+        lowerWord = words[i].toLowerCase();
+        lowerWord = lowerWord.trim();
+        capitalizedWord = lowerWord.slice(0, 1).toUpperCase() + lowerWord.slice(1);
+        output += capitalizedWord;
+        if (i != words.length - 1) {
+            output += " ";
+        }
+    } //for
+    output[output.length - 1] = '';
+    return output;
+}
+
 // When overview nav link is clicked, 
 // show the overview div and hide others
-$("#overviewTab").on("click",function(){
-	$("#overviewBox").show();
-	$("#activitiesBox").hide();
-	$("#restaurantsBox").hide();
+$("#overviewTab").on("click", function() {
+    $("#overviewBox").show();
+    $("#activitiesBox").hide();
+    $("#restaurantsBox").hide();
 });
-
-$("#activitiesTab").on("click",function(){
-	$("#overviewBox").hide();
-	$("#activitiesBox").show();
-	$("#restaurantsBox").hide();
+// When activities nav link is clicked, 
+// show the overview div and hide others
+$("#activitiesTab").on("click", function() {
+    $("#overviewBox").hide();
+    $("#activitiesBox").show();
+    $("#restaurantsBox").hide();
 });
-
-$("#restaurantTab").on("click",function(){
-	$("#overviewBox").hide();
-	$("#activitiesBox").hide();
-	$("#restaurantsBox").show();
+// When restaurant nav link is clicked, 
+// show the overview div and hide others
+$("#restaurantTab").on("click", function() {
+    $("#overviewBox").hide();
+    $("#activitiesBox").hide();
+    $("#restaurantsBox").show();
 });
-// -------------------------------------------------
