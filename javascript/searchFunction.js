@@ -20,6 +20,7 @@ $("#searchBtn").on("click",function(){
 	// update list on html page
 	$("#recentSearches").append($("<div>").html(searchTerm));
 	// need to call google maps API
+	callGoogle(searchTerm);
 	//callGoogle(searchTerm);
 	// call instagram API
 	//callInstagram(searchTerm);
