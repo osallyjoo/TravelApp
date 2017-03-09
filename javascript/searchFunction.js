@@ -20,12 +20,19 @@ $("#searchBtn").on("click", function() {
     db.ref().push(searchTerm);
     // update list on html page
     $("#recentSearches").append($("<div>").html(searchTerm));
+    
+    // next we call ALL of the API functions at once
+
     // need to call google maps API
-    //callGoogle(searchTerm);
+    // callGoogle(searchTerm);
     // call instagram API
-    //callInstagram(searchTerm);
+    // callInstagram(searchTerm);
     // call weather API
-    //callWeather(searchTerm);
+    // callWeather(searchTerm);
+    // call Zomato API
+    callZomato(searchTerm);
+    // call events
+
 });
 
 // function to capitalize first letter of each word
@@ -44,6 +51,7 @@ function capitalizeFirstLetterEachWordSplitBySpace(string) {
     output[output.length - 1] = '';
     return output;
 }
+
 // When overview nav link is clicked, 
 // show the overview div and hide others
 $("#overviewTab").on("click", function() {
