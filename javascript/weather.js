@@ -1,7 +1,8 @@
-$(document).ready(function() {
+function callWeather(searchTerm){
+  console.log(searchTerm)
   $.simpleWeather({
-    woeid: '2357536', //2357536
-    location: '',
+    woeid: '', //2357536
+    location: searchTerm,
     unit: 'f',
     success: function(weather) {
       html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
@@ -20,4 +21,4 @@ $(document).ready(function() {
       $("#weatherBox").html('<p>'+error+'</p>');
     }
   });
-});
+}

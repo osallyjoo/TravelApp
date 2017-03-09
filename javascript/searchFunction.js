@@ -34,7 +34,7 @@ $("#searchBtn").on("click", function() {
     // call instagram API
     //callInstagram(searchTerm);
     // call weather API
-    // callWeather(searchTerm);
+    callWeather(searchTerm);
     // call Zomato API
     callZomato(searchTerm);
     // call events
