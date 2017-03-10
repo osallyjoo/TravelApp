@@ -7,7 +7,7 @@ function callZomato(location){
 		url: queryURL,
 		method: "GET"
 	}).done(function(response){
-		console.log(response);
+		console.log("restaurants" + response);
 		
 		// loop over responses
 		for (i=0;i<count;i++){

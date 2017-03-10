@@ -32,7 +32,7 @@ $("#searchBtn").on("click", function() {
 
     callGoogle(map,searchTerm);
     // call instagram API
-    //callInstagram(searchTerm);
+    callInstagram(searchTerm);
     // call weather API
     callWeather(searchTerm);
     // call Zomato API
