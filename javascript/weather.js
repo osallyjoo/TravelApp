@@ -1,25 +1,29 @@
-/*******************************
-*        WEATHER DATA          *
-*******************************/
-
 function callWeather(searchTerm){
-  console.log(searchTerm)
   $.simpleWeather({
     woeid: '', //2357536
     location: searchTerm,
     unit: 'f',
     success: function(weather) {
-      html = '<h2>'+weather.temp+'&deg;'+weather.units.temp+'</h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      html += '<li class="currently">'+weather.currently+'</li>';
-      html += '<li>'+weather.alt.temp+'&deg;C</li></ul>';
+      var weatherContent =  '<p class="weatherCity">' + weather.city + ', ' + weather.region + '</p>';
+      weatherContent += '<p class="currentTemp">'+weather.temp+'&deg;'+weather.units.temp+ ' / '+weather.alt.temp+'&deg;C</p>';
+      weatherContent += '<p class="currentCond">'+weather.currently+'</p>';
 
-      for(var i=0;i<weather.forecast.length;i++) {
-        html += '<p>'+weather.forecast[i].day+': '+weather.forecast[i].high+'</p>';
-      }
-      console.log(html);
+      var forecastHolder = $('<div>').addClass("weekForecast");
+      for (var i=0; i < weather.forecast.length; i++) {
+        var dayDiv = $("<div class='dayForecast'>")
+          .append($("<p>").html(weather.forecast[i].day))
+          .append($("<p>").html(weather.forecast[i].high));
+          console.log(weather.forecast[i].day + " " + weather.forecast[i].high);
+        forecastHolder.append(dayDiv);
+      };
+      weatherContent += forecastHolder[0];
+      
+      // working code
+      // for(var i=0; i < weather.forecast.length; i++) {
+      //   html += '<p>'+weather.forecast[i].day+': '+weather.forecast[i].high+'</p>';
+      // }
 
-      $("#weatherBox").html(html);
+      $("#weatherBox").html(weatherContent);
     },
     error: function(error) {
       $("#weatherBox").html('<p>'+error+'</p>');

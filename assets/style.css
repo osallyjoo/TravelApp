@@ -4,6 +4,7 @@ body {
   background-color: #addedc;
 }
 
+/* Nav */
 .navTabs:hover {
   opacity: 0.5;
   cursor: pointer;
@@ -11,8 +12,28 @@ body {
 
 .navTabs {
   font-size: 19px;
+  padding: 10px 15px;
+  text-align: center;
 }
 
+li a {
+  color: rgb(44, 62, 80)
+
+}
+
+li.active {
+  border-top: 1px solid #547980;
+  border-right: 1px solid #547980;
+  border-left: 1px solid #547980;
+  border-radius: 4px 4px 0 0;
+  background-color: white;
+}
+
+li.inactive {
+  border-bottom: 1px solid #547980;
+}
+
+/* Search */
 .form-group {
   display: inline-block;
   width: 70%;
@@ -42,32 +63,51 @@ body {
 }
 
 h3 {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #594f4f;
   margin-top: 10px;
 }
 
-li.active {
-  border-top: 1px solid #547980;
+/* Content Boxes */
+.contentBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0 0 4px 4px;
   border-right: 1px solid #547980;
+  border-bottom: 1px solid #547980;
   border-left: 1px solid #547980;
-  border-radius: 4px 4px 0 0;
+  display:none;
+}
+
+h4 {
+  border-bottom: 1px solid #594f4f;
+  padding-bottom: 3px;
+  font-size: 22px;
+}
+
+/* Insta */
+.instaImage {
+  max-width: 25%;
+  padding: 5px;
 }
 
 /* Weather */
 #weatherBox {
-  width: 425px;
   margin: 0px auto;
-  text-align: center;
-  text-transform: uppercase;
 }
 
-#weatherBox h2 {
-  margin: 0 0 8px;
-  color: #fff;
-  font-size: px;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+.weatherCity {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.currentTemp {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.currentCond {
+  font-size:20px;
+  margin-bottom: 5px;
 }
 
 #weatherBox ul {
@@ -83,10 +123,8 @@ li.active {
   border-radius: 5px;
 }
 
-#weatherBox .currently {
-  margin: 0 20px;
-}
 
+/* Map */
 #map {
   margin: 0;
 }
@@ -97,9 +135,4 @@ ul {
 
 li {
   list-style-type: none;
-}
-
-.instaImage {
-  max-width: 25%;
-  padding: 5px;
 }

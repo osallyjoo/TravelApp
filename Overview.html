@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Travel App</title>
+	<title>Trippy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
@@ -19,9 +19,6 @@
 
 	<!--Simple Weather-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-
-
-
 </head>
 
 <body>
@@ -40,17 +37,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-8 col-xs-offset-1">
+		<div class="col-xs-9">
 			<div class="row">
 				<div class="col-xs-12">
-					<!-- NAV BAR -->
 					<ul class="nav nav-tabs nav-justified">
-						<li role="presentation" class="navTabs active" id="overviewTab"><a href="#">Overview</a></li>
-						<li class="navTabs" id="activitiesTab"><a href="#">Activites</a></li>
-						<li class="navTabs" id="restaurantTab"><a href="#">Restaurants</a></li>
+						<li role="presentation" class="navTabs active" id="overviewTab">Overview</li>
+						<li class="navTabs inactive" id="activitiesTab">Activites</li>
+						<li class="navTabs inactive" id="restaurantTab">Restaurants</li>
 					</ul>
 					<!-- TAB 1 CONTENT -->
-					<div class="contentBox" id="overviewBox" style="display:none;">
+					<div class="contentBox" id="overviewBox">
 						<h4>Instagram</h4>
 						<div id="instagramBox" class="overviewContent">
 							<ul id="instafeed"></ul>
@@ -63,14 +59,14 @@
 	            		</div>
             		</div>
 					<!-- TAB 2 CONTENT -->
-					<div class="contentBox" id="activitiesBox" style="display:none">
+					<div class="contentBox" id="activitiesBox">
 						<h4>Activities</h4>
 						<div class="row">
 							<div class="col-xs-12" id="activitiesResults"></div>
 						</div>
 					</div>
 					<!-- TAB 3 CONTENT -->
-					<div class="contentBox" id="restaurantsBox" style="display:none"><h4>Restaurants</h4>
+					<div class="contentBox" id="restaurantsBox"><h4>Restaurants</h4>
 						<div class="row">
 							<div class="col-xs-12" id="restaurantsResults"></div>
 						</div>
@@ -87,10 +83,9 @@
 <script type="text/javascript" src="javascript/insta.js"></script>
 <script type="text/javascript" src="javascript/zomatoAPI.js"></script>
 
-<script src="javascript/googleAPI.js"></script> <!-- This is the googlemaps javascript 
-file check it out! -->
+<script src="javascript/googleAPI.js"></script> <!-- This is the googlemaps javascript file check it out! -->
 <!-- Google map library tool thingy-->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&libraries=places"></script>
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&libraries=places"></script> -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM"></script>
+<!-- &callback=initMap -->
 </body>
 </html>
