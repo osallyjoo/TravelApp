@@ -17,7 +17,7 @@ $("#searchBtn").on("click", function() {
     var searchTerm = $("#searchTerm").val().trim();
     var isValid = inputValidation(searchTerm);
     if(isValid){
-        console.log("this is a valid string");
+        console.log(searchTerm +" is a valid string");
 
         // grab the text in the search term box
         $("#overviewBox").show();
@@ -49,7 +49,7 @@ $("#searchBtn").on("click", function() {
         // call events
         // callEvents(searchTerm);
     }else{
-        console.log("this is not a valid string")
+        console.log(searchTerm+" is not a valid string")
         $("#YourElementHere").html("no special characters");
     }
     
@@ -106,6 +106,7 @@ $("#restaurantTab").on("click", function() {
 });
 
 function inputValidation(testString){
+    return true;
     //This function tests if the argument is alphanumeric and returns true or false accordingly
     return (testString==/^([0-9]|[a-z])+([0-9a-z]+)$/i)? true: false;
 }
