@@ -25,8 +25,11 @@ $("#searchBtn").on("click", function() {
     searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
     // push search to database
     db.ref().push(searchTerm);
+    var newSearchTerm = $("<div>").html(searchTerm);
+    newSearchTerm.addClass(".searchHistoryTerms");
+    newSearchTerm.attr("data-term",searchTerm);
     // update list on html page
-    $("#recentSearches").append($("<div>").html(searchTerm));
+    $("#recentSearches").append(newSearchTerm);
     
     // next we call ALL of the API functions at once
 
@@ -39,8 +42,7 @@ $("#searchBtn").on("click", function() {
     // call Zomato API
     callZomato(searchTerm);
     // call events
-
-
+    // callEvents(searchTerm);
 });
 
 // function to empty previous results
@@ -89,3 +91,4 @@ $("#restaurantTab").on("click", function() {
     $("#activitiesBox").hide();
     $("#restaurantsBox").show();
 });
+
