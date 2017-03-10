@@ -14,35 +14,45 @@ var db = firebase.database();
 // when the search button is clicked, do something
 
 $("#searchBtn").on("click", function() {
-    // grab the text in the search term box
-    $("#overviewBox").show();
-    $("#activitiesBox").hide();
-    $("#restaurantsBox").hide();
-    // call function to empty previous results
-    clearBoxes();
-    var map = initMap();
     var searchTerm = $("#searchTerm").val().trim();
-    searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
-    // push search to database
-    db.ref().push(searchTerm);
-    var newSearchTerm = $("<div>").html(searchTerm);
-    newSearchTerm.addClass(".searchHistoryTerms");
-    newSearchTerm.attr("data-term",searchTerm);
-    // update list on html page
-    $("#recentSearches").append(newSearchTerm);
-    
-    // next we call ALL of the API functions at once
+    var isValid = inputValidation(searchTerm);
+    if(isValid){
+        console.log("this is a valid string");
 
-    // need to call google maps API
-    callGoogle(map,searchTerm);
-    // call instagram API
-    callInstagram(searchTerm);
-    // call weather API
-    callWeather(searchTerm);
-    // call Zomato API
-    callZomato(searchTerm);
-    // call events
-    // callEvents(searchTerm);
+        // grab the text in the search term box
+        $("#overviewBox").show();
+        $("#activitiesBox").hide();
+        $("#restaurantsBox").hide();
+        // call function to empty previous results
+        clearBoxes();
+        var map = initMap();
+        
+        searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
+        // push search to database
+        db.ref().push(searchTerm);
+        var newSearchTerm = $("<div>").html(searchTerm);
+        newSearchTerm.addClass(".searchHistoryTerms");
+        newSearchTerm.attr("data-term",searchTerm);
+        // update list on html page
+        $("#recentSearches").append(newSearchTerm);
+        
+        // next we call ALL of the API functions at once
+
+        // need to call google maps API
+        callGoogle(map,searchTerm);
+        // call instagram API
+        callInstagram(searchTerm);
+        // call weather API
+        callWeather(searchTerm);
+        // call Zomato API
+        callZomato(searchTerm);
+        // call events
+        // callEvents(searchTerm);
+    }else{
+        console.log("this is not a valid string")
+        $("#YourElementHere").html("no special characters");
+    }
+    
 });
 
 // function to empty previous results
@@ -95,3 +105,7 @@ $("#restaurantTab").on("click", function() {
     $("#restaurantsBox").show();
 });
 
+function inputValidation(testString){
+    //This function tests if the argument is alphanumeric and returns true or false accordingly
+    return (testString==/^([0-9]|[a-z])+([0-9a-z]+)$/i)? true: false;
+}

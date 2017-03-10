@@ -1,3 +1,7 @@
+/*******************************
+*    INSTAGRAM API CALL        *
+*******************************/
+
 function callInstagram(location){
   var token = '39192664.89711c6.45827d0fb1804f46881c47def3087e7f',
       hashtag = 'kitten', // hashtag without # symbol

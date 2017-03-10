@@ -1,3 +1,7 @@
+/*******************************
+*    ZOMATO & YELP API CALL    *
+*******************************/
+
 function callZomato(location){
 	var key = "da8b23fe22287eeb23c1070176f09b1f";
 	var count = 5;

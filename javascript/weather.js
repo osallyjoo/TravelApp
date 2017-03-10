@@ -1,3 +1,7 @@
+/*******************************
+*        WEATHER DATA          *
+*******************************/
+
 function callWeather(searchTerm){
   console.log(searchTerm)
   $.simpleWeather({
