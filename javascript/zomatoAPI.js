@@ -19,7 +19,7 @@ function callZomato(location){
 			var newRest = $("<div>")
 				.append($("<p>").html(restName))
 				.append($("<img>").attr("src",restImg));
-			$("#restaurantsBox").append(newRest);
+			$("#restaurantsResults").append(newRest);
 
 		}
 		/* WHAT DO WITH DATA? */

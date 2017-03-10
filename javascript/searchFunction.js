@@ -18,18 +18,22 @@ $("#searchBtn").on("click", function() {
     $("#overviewBox").show();
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
+    // call function to empty previous results
+    clearBoxes();
     var map = initMap();
     var searchTerm = $("#searchTerm").val().trim();
     searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
     // push search to database
     db.ref().push(searchTerm);
+    var newSearchTerm = $("<div>").html(searchTerm);
+    newSearchTerm.addClass(".searchHistoryTerms");
+    newSearchTerm.attr("data-term",searchTerm);
     // update list on html page
-    $("#recentSearches").append($("<div>").html(searchTerm));
+    $("#recentSearches").append(newSearchTerm);
     
     // next we call ALL of the API functions at once
 
     // need to call google maps API
-
     callGoogle(map,searchTerm);
     // call instagram API
     callInstagram(searchTerm);
@@ -38,9 +42,16 @@ $("#searchBtn").on("click", function() {
     // call Zomato API
     callZomato(searchTerm);
     // call events
-
-
+    // callEvents(searchTerm);
 });
+
+// function to empty previous results
+function clearBoxes(){
+    $("#instafeed").empty();
+    $("#weatherBox").empty();
+    $("#activitiesResults").empty();
+    $("#restaurantsResults").empty();
+}
 
 // function to capitalize first letter of each word
 function capitalizeFirstLetterEachWordSplitBySpace(string) {
@@ -80,3 +91,4 @@ $("#restaurantTab").on("click", function() {
     $("#activitiesBox").hide();
     $("#restaurantsBox").show();
 });
+
