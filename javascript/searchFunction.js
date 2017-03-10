@@ -18,6 +18,8 @@ $("#searchBtn").on("click", function() {
     $("#overviewBox").show();
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
+    // call function to empty previous results
+    clearBoxes();
     var map = initMap();
     var searchTerm = $("#searchTerm").val().trim();
     searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
@@ -29,7 +31,6 @@ $("#searchBtn").on("click", function() {
     // next we call ALL of the API functions at once
 
     // need to call google maps API
-
     callGoogle(map,searchTerm);
     // call instagram API
     callInstagram(searchTerm);
@@ -41,6 +42,14 @@ $("#searchBtn").on("click", function() {
 
 
 });
+
+// function to empty previous results
+function clearBoxes(){
+    $("#instafeed").empty();
+    $("#weatherBox").empty();
+    $("#activitiesResults").empty();
+    $("#restaurantsResults").empty();
+}
 
 // function to capitalize first letter of each word
 function capitalizeFirstLetterEachWordSplitBySpace(string) {
