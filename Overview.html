@@ -28,57 +28,57 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
-			<form class=" row">
-				<div class="form-group col-xs-9">
-					<input type="text" class="form-control" placeholder="Search" id="searchTerm">
-				</div>
-				<div type="submit" class="btn btn-default btn-outline-success col-xs-3" id="searchBtn"><span class="glyphicon glyphicon-search"></span></div>
-			</form>
-		</div>
-		<div class="col-xs-8 col-xs-offset-1">
-			<ul class="nav nav-pills nav-justified">
-				<li id="overviewTab">Overview</li>
-				<li id="activitiesTab">Activites</li>
-				<li id="restaurantTab">Restaurants</li>
-			</ul>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-3" id="recentSearches"><h4>Recent Searches</h4>
-		</div>
-    
-		<div class="col-xs-8 col-xs-offset-1 contentBox" id="overviewBox" style="display:none">
 			<div class="row">
 				<div class="col-xs-12">
-					<h4>Instagram</h4>
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" id="searchTerm">
+						</div>
+						<div type="submit" class="btn" id="searchBtn"><span class="glyphicon glyphicon-search"></span></div>
+					</form>
+					<div id="recentSearches"><h3>Recent Searches</h3></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-8 col-xs-offset-1">
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- NAV BAR -->
+					<ul class="nav nav-tabs nav-justified">
+						<li role="presentation" class="navTabs active" id="overviewTab"><a href="#">Overview</a></li>
+						<li class="navTabs" id="activitiesTab"><a href="#">Activites</a></li>
+						<li class="navTabs" id="restaurantTab"><a href="#">Restaurants</a></li>
+					</ul>
+					<!-- TAB 1 CONTENT -->
+					<div class="contentBox" id="overviewBox" style="display:none;">
+						<h4>Instagram</h4>
 						<div id="instagramBox" class="overviewContent">
 							<ul id="instafeed"></ul>
 						</div>
-					<h4>Weather</h4>
+						<h4>Weather</h4>
 						<div id="weatherBox" class="overviewContent"></div>
-					<h4>Google Maps</h4>
+						<h4>Google Maps</h4>
 						<div id="googleBox" class="overviewContent">
-              <div id="map" class = "row" style="height:400px; width:100%;"></div>
-            </div>
-
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-8 col-xs-offset-1 contentBox" id="activitiesBox" style="display:none"><h4>Activities</h4>
-			<div class="row">
-				<div class="col-xs-12" id="activitiesResults">
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-8 col-xs-offset-1 contentBox" id="restaurantsBox" style="display:none"><h4>Restaurants</h4>
-			<div class="row">
-				<div class="col-xs-12" id="restaurantsResults">
+	              			<div id="map" class = "row" style="height:400px; width:100%;"></div>
+	            		</div>
+            		</div>
+					<!-- TAB 2 CONTENT -->
+					<div class="contentBox" id="activitiesBox" style="display:none">
+						<h4>Activities</h4>
+						<div class="row">
+							<div class="col-xs-12" id="activitiesResults"></div>
+						</div>
+					</div>
+					<!-- TAB 3 CONTENT -->
+					<div class="contentBox" id="restaurantsBox" style="display:none"><h4>Restaurants</h4>
+						<div class="row">
+							<div class="col-xs-12" id="restaurantsResults"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- This is just a test element feel free to move it around (please note that the JS is calling the element with an id of 'map') -->
-	
 </div>
 
 <!-- Call javascript files -->

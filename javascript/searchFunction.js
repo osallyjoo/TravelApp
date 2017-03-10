@@ -58,15 +58,18 @@ function capitalizeFirstLetterEachWordSplitBySpace(string) {
     var words = string.split(" ");
     var output = "";
     for (i = 0; i < words.length; i++) {
+        // lowercase all letters, capitalize only the first letter
         lowerWord = words[i].toLowerCase();
         lowerWord = lowerWord.trim();
         capitalizedWord = lowerWord.slice(0, 1).toUpperCase() + lowerWord.slice(1);
         output += capitalizedWord;
+        // add space to end fo capitalizedWord if not last word
         if (i != words.length - 1) {
             output += " ";
         }
     } //for
     output[output.length - 1] = '';
+    console.log("Final output: " + output);
     return output;
 }
 

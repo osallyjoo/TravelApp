@@ -1,6 +1,6 @@
 function callInstagram(location){
   var token = '39192664.89711c6.45827d0fb1804f46881c47def3087e7f',
-      hashtag='kitten', // hashtag without # symbol
+      hashtag = 'kitten', // hashtag without # symbol
       num_photos = 4;
 
   $.ajax({
@@ -11,7 +11,7 @@ function callInstagram(location){
     success: function(data){
       console.log(data);
       for(x in data.data){
-        $('#instafeed').append('<li><img src="'+data.data[x].images.standard_resolution.url+'"></li>');
+        $('#instafeed').append('<li><img class="instaImage" src="'+data.data[x].images.standard_resolution.url+'"></li>');
       }
     },
     error: function(data){
