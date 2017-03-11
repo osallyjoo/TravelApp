@@ -29,6 +29,7 @@ li.active {
   border-top: 1px solid #547980;
   border-right: 1px solid #547980;
   border-left: 1px solid #547980;
+  border-bottom: none;
   border-radius: 4px 4px 0 0;
   background-color: white;
 }
