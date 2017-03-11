@@ -17,7 +17,7 @@ ref.once("value")
     .then(function(snapshot){
         snapshot.forEach(function(childSnapshot){
             var cityName = childSnapshot.val().searchTerm;
-            console.log(cityName);
+            //console.log(cityName);
         });
     });
 
@@ -31,7 +31,7 @@ $("#searchBtn").on("click", function() {
 
 // assign on click function to search history terms
 $(document).on("click", "button", function() {
-    var searchTerm = this.attr("data-term");
+    var searchTerm = $(this).attr("data-term");
     getCityInfo(searchTerm);
 });
 
