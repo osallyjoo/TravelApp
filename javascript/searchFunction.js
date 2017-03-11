@@ -23,14 +23,16 @@ ref.once("value")
 
 // when the search button is clicked, do something
 $("#searchBtn").on("click", function() {
-    // use getSearchTerm function to clean up and get search term
-    var searchTerm = getSearchTerm();
-    $("#citySearched").text(searchTerm);
-    // call function to pull API info
-    getCityInfo(searchTerm,"");  
-    // call function to put search term on page  
-    putSearchTermOnPage(searchTerm);
-    $("#searchTerm").val("");
+    if ($("#searchTerm").val().length !== 0) {
+        // use getSearchTerm function to clean up and get search term
+        var searchTerm = getSearchTerm();
+        $("#citySearched").text(searchTerm);
+        // call function to pull API info
+        getCityInfo(searchTerm,"");  
+        // call function to put search term on page  
+        putSearchTermOnPage(searchTerm);
+        $("#searchTerm").val("");
+    }
 });
 
 // assign on click function to search history terms
