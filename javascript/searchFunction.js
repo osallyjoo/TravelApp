@@ -155,8 +155,6 @@ $("#overviewTab").on("click", function() {
     $("#restaurantsBox").hide();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#overviewTab").addClass("active").removeClass("inactive");
-    var searchTerm = getSearchTerm();
-    getCityInfo(searchTerm,"random");
 });
 // When activities nav link is clicked, 
 // show the overview div and hide others
