@@ -29,12 +29,14 @@ $("#searchBtn").on("click", function() {
     getCityInfo(searchTerm);  
     // call function to put search term on page  
     putSearchTermOnPage(searchTerm);
+    $("#searchTerm").val("");
 });
 
 // assign on click function to search history terms
-$(document).on("click", "button", function() {
+$(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
     getCityInfo(searchTerm);
+    $("#searchTerm").val("");
 });
 
 // when enter is pressed, get search term and run the functions
@@ -46,7 +48,9 @@ $("#searchTerm").on("keyup", function(event){
         var searchTerm = getSearchTerm();
         getCityInfo(searchTerm);
         putSearchTermOnPage(searchTerm);
+        $("#searchTerm").val("");
     }
+
 });
 
 // function to clean up and validate search term
@@ -93,8 +97,8 @@ function getCityInfo(searchTerm){
 // function to put database on page
 function putSearchTermOnPage(searchTerm){
     // Create divs to update recent searches
-    var newSearchTerm = $("<button>").html(searchTerm);
-    newSearchTerm.addClass(".searchHistoryTerms");
+    var newSearchTerm = $("<div>").html(searchTerm);
+    newSearchTerm.addClass("searchHistoryTerms");
     newSearchTerm.attr("data-term",searchTerm);
     // update list on html page
     $("#recentSearches").append(newSearchTerm);

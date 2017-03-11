@@ -151,3 +151,8 @@ ul {
 li {
   list-style-type: none;
 }
+
+.searchHistoryTerms {
+  margin: 5px;
+  display:block;
+}
