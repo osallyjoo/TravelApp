@@ -19,52 +19,77 @@ ref.once("value")
             var cityName = childSnapshot.val().searchTerm;
             console.log(cityName);
         });
-    })
+    });
+
 // when the search button is clicked, do something
 $("#searchBtn").on("click", function() {
+    // use getSearchTerm function to clean up and get search term
+    var searchTerm = getSearchTerm();
+    getCityInfo(searchTerm);    
+});
+
+// assign on click function to search history terms
+$(document).on("click", ".searchHistoryTerms", function() {
+    var searchTerm = this.attr("data-term");
+    getCityInfo(searchTerm);
+});
+
+document.onkeyup = function(event){
+    if (event.key===13){
+        console.log("enter was pressed");
+        var searchTerm = getSearchTerm();
+        getCityInfo(searchTerm);
+    }
+};
+
+// function to clean up and validate search term
+function getSearchTerm(){
+    // get value from input box
     var searchTerm = $("#searchTerm").val().trim();
+    // call function to validate if there are special characters
     var isValid = inputValidation(searchTerm);
-    if(isValid){
-        console.log(searchTerm +" is a valid string");
-
-        // grab the text in the search term box
-        $("#overviewBox").show();
-        $("#activitiesBox").hide();
-        $("#restaurantsBox").hide();
-        // call function to empty previous results
-        clearBoxes();
-        var map = initMap();
-        
+    if (isValid) {
+        // if it's valid, capitalize the first letter of every word
         searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
-        // Check if searchTerm is already in Firebase
-        //var termInDB = checkFirebaseForSearchTerm(searchTerm);
-        // push search to database
-        db.ref().push({searchTerm});
-        
-        var newSearchTerm = $("<div>").html(searchTerm);
-        newSearchTerm.addClass(".searchHistoryTerms");
-        newSearchTerm.attr("data-term",searchTerm);
-        // update list on html page
-        $("#recentSearches").append(newSearchTerm);
-        
-        // next we call ALL of the API functions at once
-
-        // need to call google maps API
-        callGoogle(map,searchTerm);
-        // call instagram API
-        callInstagram(searchTerm);
-        // call weather API
-        callWeather(searchTerm);
-        // call Zomato API
-        callZomato(searchTerm);
-        // call events
-        // callEvents(searchTerm);
-    }else{
-        console.log(searchTerm+" is not a valid string")
+    } else {
+        // if it's not valid, update page to say it's not a valid string
+        console.log(searchTerm+" is not a valid string");
         $("#YourElementHere").html("no special characters");
     }
+    return searchTerm;
+}
+
+// function to update the page
+function getCityInfo(searchTerm){
+    // hide activities and restaurants box, only show overview
+    $("#overviewBox").show();
+    $("#activitiesBox").hide();
+    $("#restaurantsBox").hide();
+
+    // push searchTerm to firebase in an object
+    db.ref().push({searchTerm});
+
+    // Create divs to update recent searches
+    var newSearchTerm = $("<div>").html(searchTerm);
+    newSearchTerm.addClass(".searchHistoryTerms");
+    newSearchTerm.attr("data-term",searchTerm);
+    // update list on html page
+    $("#recentSearches").append(newSearchTerm);
     
-});
+    // call function to empty previous results
+    clearBoxes();
+    // initialize map
+    var map = initMap();
+
+    // call google API
+    callGoogle(map,searchTerm);
+    // call instagram API
+    callInstagram(searchTerm);
+    // call weather API
+    callWeather(searchTerm);
+    // call Zomato API
+    callZomato(searchTerm);
+}
 
 // function to check if searchTerm is already in Firebase
 function checkFirebaseForSearchTerm(searchTerm){
