@@ -11,8 +11,16 @@ firebase.initializeApp(config);
 // create shorter version to reference firebase db
 var db = firebase.database();
 
+// Load recent searches from Firebase
+var ref = db.ref();
+ref.once("value")
+    .then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+            var cityName = childSnapshot.val().searchTerm;
+            console.log(cityName);
+        });
+    })
 // when the search button is clicked, do something
-
 $("#searchBtn").on("click", function() {
     var searchTerm = $("#searchTerm").val().trim();
     var isValid = inputValidation(searchTerm);
@@ -28,8 +36,11 @@ $("#searchBtn").on("click", function() {
         var map = initMap();
         
         searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
+        // Check if searchTerm is already in Firebase
+        //var termInDB = checkFirebaseForSearchTerm(searchTerm);
         // push search to database
-        db.ref().push(searchTerm);
+        db.ref().push({searchTerm});
+        
         var newSearchTerm = $("<div>").html(searchTerm);
         newSearchTerm.addClass(".searchHistoryTerms");
         newSearchTerm.attr("data-term",searchTerm);
@@ -54,6 +65,22 @@ $("#searchBtn").on("click", function() {
     }
     
 });
+
+// function to check if searchTerm is already in Firebase
+function checkFirebaseForSearchTerm(searchTerm){
+    ref.once("value")
+    .then(function(snapshot){
+        var checkCounter = 0;
+        snapshot.forEach(function(childSnapshot){
+            var cityName = childSnapshot.val().searchTerm;
+            if (cityName===searchTerm){
+                checkCounter++;
+            };
+        });
+    });
+    console.log(checkCounter)
+    return checkCounter;
+}
 
 // function to empty previous results
 function clearBoxes(){
