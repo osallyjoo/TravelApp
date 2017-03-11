@@ -156,3 +156,26 @@ li {
   margin: 5px;
   display:block;
 }
+
+/* Points of Interest */
+.interestHolder {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.interestImage {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.interestText {
+  display: inline-block;
+}
+
+.interestName {
+  font-size: 24px;
+}
+
+.interestAddress {
+  font-size: 18px;
+}
