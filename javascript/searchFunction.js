@@ -26,10 +26,11 @@ $("#searchBtn").on("click", function() {
     // use getSearchTerm function to clean up and get search term
     var searchTerm = getSearchTerm();
     getCityInfo(searchTerm);    
+    putSearchTermOnPage(searchTerm);
 });
 
 // assign on click function to search history terms
-$(document).on("click", ".searchHistoryTerms", function() {
+$(document).on("click", "button", function() {
     var searchTerm = this.attr("data-term");
     getCityInfo(searchTerm);
 });
@@ -39,6 +40,7 @@ document.onkeyup = function(event){
         console.log("enter was pressed");
         var searchTerm = getSearchTerm();
         getCityInfo(searchTerm);
+        putSearchTermOnPage(searchTerm);
     }
 };
 
@@ -68,13 +70,6 @@ function getCityInfo(searchTerm){
 
     // push searchTerm to firebase in an object
     db.ref().push({searchTerm});
-
-    // Create divs to update recent searches
-    var newSearchTerm = $("<div>").html(searchTerm);
-    newSearchTerm.addClass(".searchHistoryTerms");
-    newSearchTerm.attr("data-term",searchTerm);
-    // update list on html page
-    $("#recentSearches").append(newSearchTerm);
     
     // call function to empty previous results
     clearBoxes();
@@ -91,6 +86,14 @@ function getCityInfo(searchTerm){
     callZomato(searchTerm);
 }
 
+function putSearchTermOnPage(searchTerm){
+    // Create divs to update recent searches
+    var newSearchTerm = $("<button>").html(searchTerm);
+    newSearchTerm.addClass(".searchHistoryTerms");
+    newSearchTerm.attr("data-term",searchTerm);
+    // update list on html page
+    $("#recentSearches").append(newSearchTerm);
+}
 // function to check if searchTerm is already in Firebase
 function checkFirebaseForSearchTerm(searchTerm){
     ref.once("value")
