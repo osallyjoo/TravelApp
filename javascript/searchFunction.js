@@ -141,6 +141,8 @@ $("#overviewTab").on("click", function() {
     $("#overviewBox").show();
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
+    $(".navTabs").removeClass("active").addClass("inactive");
+    $("#overviewTab").addClass("active").removeClass("inactive");
 });
 // When activities nav link is clicked, 
 // show the overview div and hide others
@@ -148,6 +150,8 @@ $("#activitiesTab").on("click", function() {
     $("#overviewBox").hide();
     $("#activitiesBox").show();
     $("#restaurantsBox").hide();
+    $(".navTabs").removeClass("active").addClass("inactive");
+    $("#activitiesTab").addClass("active").removeClass("inactive");
 });
 // When restaurant nav link is clicked, 
 // show the overview div and hide others
@@ -155,6 +159,8 @@ $("#restaurantTab").on("click", function() {
     $("#overviewBox").hide();
     $("#activitiesBox").hide();
     $("#restaurantsBox").show();
+    $(".navTabs").removeClass("active").addClass("inactive");
+    $("#restaurantTab").addClass("active").removeClass("inactive");
 });
 
 function inputValidation(testString){
