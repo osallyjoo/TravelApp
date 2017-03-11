@@ -98,7 +98,7 @@ function getCityInfo(searchTerm){
 function putSearchTermOnPage(searchTerm){
     // Create divs to update recent searches
     var newSearchTerm = $("<div>").html(searchTerm);
-    newSearchTerm.addClass("searchHistoryTerms");
+    newSearchTerm.addClass("searchHistoryTerms btn-default btn");
     newSearchTerm.attr("data-term",searchTerm);
     // update list on html page
     $("#recentSearches").append(newSearchTerm);
