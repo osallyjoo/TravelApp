@@ -25,7 +25,9 @@ ref.once("value")
 $("#searchBtn").on("click", function() {
     // use getSearchTerm function to clean up and get search term
     var searchTerm = getSearchTerm();
-    getCityInfo(searchTerm);    
+    // call function to pull API info
+    getCityInfo(searchTerm);  
+    // call function to put search term on page  
     putSearchTermOnPage(searchTerm);
 });
 
@@ -35,14 +37,17 @@ $(document).on("click", "button", function() {
     getCityInfo(searchTerm);
 });
 
-document.onkeyup = function(event){
-    if (event.key===13){
+// when enter is pressed, get search term and run the functions
+$("#searchTerm").on("keyup", function(event){
+    event.preventDefault();
+    console.log(event.key);
+    if (event.key==="Enter"){
         console.log("enter was pressed");
         var searchTerm = getSearchTerm();
         getCityInfo(searchTerm);
         putSearchTermOnPage(searchTerm);
     }
-};
+});
 
 // function to clean up and validate search term
 function getSearchTerm(){
@@ -75,7 +80,6 @@ function getCityInfo(searchTerm){
     clearBoxes();
     // initialize map
     var map = initMap();
-
     // call google API
     callGoogle(map,searchTerm);
     // call instagram API
@@ -86,6 +90,7 @@ function getCityInfo(searchTerm){
     callZomato(searchTerm);
 }
 
+// function to put database on page
 function putSearchTermOnPage(searchTerm){
     // Create divs to update recent searches
     var newSearchTerm = $("<button>").html(searchTerm);
