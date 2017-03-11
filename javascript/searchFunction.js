@@ -25,6 +25,7 @@ ref.once("value")
 $("#searchBtn").on("click", function() {
     // use getSearchTerm function to clean up and get search term
     var searchTerm = getSearchTerm();
+    $("#citySearched").text(searchTerm);
     // call function to pull API info
     getCityInfo(searchTerm,"");  
     // call function to put search term on page  
@@ -98,7 +99,7 @@ function getCityInfo(searchTerm,type){
 function putSearchTermOnPage(searchTerm){
     // Create divs to update recent searches
     var newSearchTerm = $("<div>").html(searchTerm);
-    newSearchTerm.addClass("searchHistoryTerms btn-default btn");
+    newSearchTerm.addClass("searchHistoryTerms btn");
     newSearchTerm.attr("data-term",searchTerm);
     // update list on html page
     $("#recentSearches").append(newSearchTerm);
