@@ -15,7 +15,6 @@ function callWeather(searchTerm){
         var dayDiv = $("<div class='dayForecast'>")
           .append($("<p>").html(weather.forecast[i].day))
           .append($("<p>").html(weather.forecast[i].high));
-          console.log(weather.forecast[i].day + " " + weather.forecast[i].high);
         forecastHolder.append(dayDiv);
       };
       weatherContent.append(forecastHolder);

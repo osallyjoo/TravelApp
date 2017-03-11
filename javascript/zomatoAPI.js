@@ -11,15 +11,12 @@ function callZomato(location){
 		url: queryURL,
 		method: "GET"
 	}).done(function(response){
-		console.log("restaurants")
-		console.log(response);
 		
 		// loop over responses
 		for (i=0;i<count;i++){
 			var restImg = response.restaurants[i].restaurant.photos_url;
 			var restName = response.restaurants[i].restaurant.name;
 			var restMenu = response.restaurants[i].restaurant.menu_url;
-			console.log("url: " + restImg + ", name: " + restName)
 			var newRest = $("<div>")
 				.append($("<p>").html(restName))
 				.append($("<img>").attr("src",restImg));
@@ -51,7 +48,6 @@ function callYelp(location){
 			var restImg = response.businesses[i].image_url;
 			var restName = response.businesses[i].name;
 			var restMenu = response.businesses[i].menu_url;
-			console.log("url: " + restImg + ", name: " + restName)
 			var newRest = $("<div>")
 				.append($("<p>").html(restName))
 				.append($("<img>").attr("src",restImg));
