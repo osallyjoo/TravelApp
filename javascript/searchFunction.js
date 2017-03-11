@@ -11,8 +11,16 @@ firebase.initializeApp(config);
 // create shorter version to reference firebase db
 var db = firebase.database();
 
+// Load recent searches from Firebase
+var ref = db.ref();
+ref.once("value")
+    .then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+            var cityName = childSnapshot.val().searchTerm;
+            console.log(cityName);
+        });
+    })
 // when the search button is clicked, do something
-
 $("#searchBtn").on("click", function() {
     var searchTerm = $("#searchTerm").val().trim();
     var isValid = inputValidation(searchTerm);
@@ -29,7 +37,7 @@ $("#searchBtn").on("click", function() {
         
         searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
         // push search to database
-        db.ref().push(searchTerm);
+        db.ref().push({searchTerm});
         var newSearchTerm = $("<div>").html(searchTerm);
         newSearchTerm.addClass(".searchHistoryTerms");
         newSearchTerm.attr("data-term",searchTerm);
