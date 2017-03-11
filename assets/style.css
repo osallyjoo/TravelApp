@@ -4,6 +4,10 @@ body {
   background-color: #addedc;
 }
 
+p {
+  margin: 5px 0;
+}
+
 /* Nav */
 .navTabs:hover {
   opacity: 0.5;
@@ -123,6 +127,16 @@ h4 {
   border-radius: 5px;
 }
 
+.dayForecast {
+  display: inline-block;
+  width: 105px;
+  text-align: center;
+  padding: 2px 5px;
+  margin: 5px;
+  border: 1px solid #594f4f;
+  border-radius: 5px;
+
+}
 
 /* Map */
 #map {
