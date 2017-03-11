@@ -66,6 +66,8 @@ function getPlaces (map,cityLoc){
 	  		placeLoc = results[i].geometry.location;
 	  		createMarker(map,placeLoc);
 	  }
+	  return results; //we can use this information to provide details of the places on the map 
+	  //OR even pass that information to the tripAdvisor API assuming I can get my hands on a key...
 	}
 }
 
