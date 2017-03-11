@@ -68,8 +68,10 @@ function getPlaces (map,cityLoc){
 	  		placeImg = typeof results[i].photos !== 'undefined' 
        			? results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100})
        			: results[i].icon;
+       		placeAddress = results[i].formatted_address;
+       		placeName = results[i].name;
 	  		createMarker(map,placeLoc);
-	  		addImg(placeImg)
+	  		addPlace(placeImg,placeAddress,placeName)
 	  }
 	  return results; //we can use this information to provide details of the places on the map 
 	  //OR even pass that information to the tripAdvisor API assuming I can get my hands on a key...
@@ -84,7 +86,8 @@ function createMarker(map,place) {
 	});
 }
 
-function addImg(placeImg){
+function addPlace(placeImg,placeAddress,placeName){
 	var newImg = $("<img>").attr("src",placeImg);
-	$("#placeImages").append(newImg);
+	var divAddress = $("<p>").html(placeName+"-"+placeAddress);
+	$("#placeImages").append(newImg).append(divAddress);
 }
