@@ -38,7 +38,7 @@ $(document).on("click", "button", function() {
 });
 
 // when enter is pressed, get search term and run the functions
-$(document).on("keyup", function(event){
+$("#searchTerm").on("keyup", function(event){
     event.preventDefault();
     console.log(event.key);
     if (event.key==="Enter"){
