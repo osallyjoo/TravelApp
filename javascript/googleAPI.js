@@ -62,11 +62,11 @@ function getPlaces (map,cityLoc){
 
 	function callBack(results, status) {
 	  console.log(results);
-	  for(var i = 0;i<results.length;i++){
+	  for(var i = 0; i < 10; i++){
 	  		placeLoc = results[i].geometry.location;
 
 	  		placeImg = typeof results[i].photos !== 'undefined' 
-       			? results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100})
+       			? results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200})
        			: results[i].icon;
        		placeAddress = results[i].formatted_address;
        		placeName = results[i].name;
@@ -87,7 +87,12 @@ function createMarker(map,place) {
 }
 
 function addPlace(placeImg,placeAddress,placeName){
-	var newImg = $("<img>").attr("src",placeImg);
-	var divAddress = $("<p>").html(placeName+"-"+placeAddress);
-	$("#placeImages").append(newImg).append(divAddress);
+	var interestHolder = $("<div class='interestHolder'>");
+	var interestText = $("<div class='interestText'>");
+	var newImg = $("<img class='interestImage'>").attr("src",placeImg);
+	var divName = $("<p class='interestName'>").html(placeName);
+	var divAddress = $("<p class='interestAddress'>").html(placeAddress);
+	interestText.append(divName).append(divAddress);
+	interestHolder.append(newImg).append(interestText);
+	$("#pointsOfInterest").append(interestHolder);
 }
