@@ -4,11 +4,13 @@ function callWeather(searchTerm){
     location: searchTerm,
     unit: 'f',
     success: function(weather) {
-      var weatherContent =  '<p class="weatherCity">' + weather.city + ', ' + weather.region + '</p>';
-      weatherContent += '<p class="currentTemp">'+weather.temp+'&deg;'+weather.units.temp+ ' / '+weather.alt.temp+'&deg;C</p>';
-      weatherContent += '<p class="currentCond">'+weather.currently+'</p>';
+    var weatherContent = $("<div>")
+    	.append($('<p class="weatherCity">').html(weather.city + ', ' + weather.region))
+    	.append($('<p class="currentTemp">').html(weather.temp+'&deg;'+weather.units.temp+ ' / '+weather.alt.temp+'&deg;C'))
+        .append($('<p class="currentCond">').html(weather.currently));
 
       var forecastHolder = $('<div>').addClass("weekForecast");
+      console.log(forecastHolder);
       for (var i=0; i < weather.forecast.length; i++) {
         var dayDiv = $("<div class='dayForecast'>")
           .append($("<p>").html(weather.forecast[i].day))
@@ -16,7 +18,7 @@ function callWeather(searchTerm){
           console.log(weather.forecast[i].day + " " + weather.forecast[i].high);
         forecastHolder.append(dayDiv);
       };
-      weatherContent += forecastHolder[0];
+      weatherContent.append(forecastHolder);
       
       // working code
       // for(var i=0; i < weather.forecast.length; i++) {
