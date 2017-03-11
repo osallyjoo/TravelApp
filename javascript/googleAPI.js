@@ -25,7 +25,7 @@ function initMap() {
   return map;
 }
 
-function callGoogle(map,cityName){
+function callGoogle(map,cityName,type){
 	//This function takes in a map and an address (it could be anything) grabs a location from the geolcation API and re-centers the map
 	var queryObject = {
 		//set search parameters
@@ -45,16 +45,17 @@ function callGoogle(map,cityName){
 
 		//doesn't hurt to include a marker I guess but probably important to wipe all other markers before hand
 		createMarker(map,loc);
-  		getPlaces(map,loc);
+  		getPlaces(map,loc,type);
 	})
 
 }
 
-function getPlaces (map,cityLoc){
+function getPlaces (map,cityLoc,type){
+	$("#pointsOfInterest").empty();
 	var request = {
 		location: cityLoc,
 		radius: '500',
-		query: 'things to do' 
+		query: type,
 	}
 
 	service = new google.maps.places.PlacesService(map);

@@ -26,7 +26,7 @@ $("#searchBtn").on("click", function() {
     // use getSearchTerm function to clean up and get search term
     var searchTerm = getSearchTerm();
     // call function to pull API info
-    getCityInfo(searchTerm);  
+    getCityInfo(searchTerm,"");  
     // call function to put search term on page  
     putSearchTermOnPage(searchTerm);
     $("#searchTerm").val("");
@@ -35,7 +35,7 @@ $("#searchBtn").on("click", function() {
 // assign on click function to search history terms
 $(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
-    getCityInfo(searchTerm);
+    getCityInfo(searchTerm,"");
     $("#searchTerm").val("");
 });
 
@@ -46,7 +46,7 @@ $("#searchTerm").on("keyup", function(event){
     if (event.key==="Enter"){
         console.log("enter was pressed");
         var searchTerm = getSearchTerm();
-        getCityInfo(searchTerm);
+        getCityInfo(searchTerm,"");
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
     }
@@ -71,7 +71,7 @@ function getSearchTerm(){
 }
 
 // function to update the page
-function getCityInfo(searchTerm){
+function getCityInfo(searchTerm,type){
     // hide activities and restaurants box, only show overview
     $("#overviewBox").show();
     $("#activitiesBox").hide();
@@ -85,7 +85,7 @@ function getCityInfo(searchTerm){
     // initialize map
     var map = initMap();
     // call google API
-    callGoogle(map,searchTerm);
+    callGoogle(map,searchTerm,type);
     // call instagram API
     callInstagram(searchTerm);
     // call weather API
@@ -155,6 +155,8 @@ $("#overviewTab").on("click", function() {
     $("#restaurantsBox").hide();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#overviewTab").addClass("active").removeClass("inactive");
+    var searchTerm = getSearchTerm();
+    getCityInfo(searchTerm,"random");
 });
 // When activities nav link is clicked, 
 // show the overview div and hide others
@@ -164,6 +166,8 @@ $("#activitiesTab").on("click", function() {
     $("#restaurantsBox").hide();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#activitiesTab").addClass("active").removeClass("inactive");
+    var searchTerm = getSearchTerm();
+    getCityInfo(searchTerm,"things to do");
 });
 // When restaurant nav link is clicked, 
 // show the overview div and hide others
@@ -173,6 +177,8 @@ $("#restaurantTab").on("click", function() {
     $("#restaurantsBox").show();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#restaurantTab").addClass("active").removeClass("inactive");
+    var searchTerm = getSearchTerm();
+    getCityInfo(searchTerm,"restaurant");
 });
 
 function inputValidation(testString){
