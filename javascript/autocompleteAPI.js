@@ -23,9 +23,7 @@ function getAutocompleteResults(searchTerm){
 			newAutoFillDiv.text(cityName)
 			newAutoFillDiv.attr("data-term",cityName);
 			newAutoFillDiv.addClass("dropDownItems");
-			//$("#autofillResults").append(newAutoFillDiv);
 			cityArray[i] = cityName;
-			console.log(cityArray)
 		}
 		$("#searchTerm").autocomplete({
 				source:cityArray
