@@ -186,3 +186,8 @@ li {
 .interestAddress {
   font-size: 18px;
 }
+
+.dropDownItems {
+  background-color: white;
+  border-top: black 1px solid;
+}

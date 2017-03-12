@@ -15,16 +15,20 @@ function getAutocompleteResults(searchTerm){
 			url:queryURL
 		}
 		
-	}).done(function(response){		
+	}).done(function(response){	
+		var cityArray = [];	
 		for (i=0; i<limit; i++){
 			cityName = response.data.predictions[i].structured_formatting.main_text;
-			var newAutoFillDiv = $("<div>")
+			var newAutoFillDiv = $("<div>");
 			newAutoFillDiv.text(cityName)
 			newAutoFillDiv.attr("data-term",cityName);
-			newAutoFillDiv.addClass("searchHistoryTerms")
+			newAutoFillDiv.addClass("dropDownItems");
 			//$("#autofillResults").append(newAutoFillDiv);
-
+			cityArray[i] = cityName;
+			console.log(cityArray)
 		}
-
+		$("#searchTerm").autocomplete({
+				source:cityArray
+		});
 	});
 }
