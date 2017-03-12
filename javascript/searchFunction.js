@@ -51,6 +51,7 @@ $("#searchTerm").on("keyup", function(event){
         $("#searchTerm").val("");
     } else {
         var searchTerm = getSearchTerm();
+        $("#autofillResults").empty();
         getAutocompleteResults(searchTerm);
         // run autocomplete function
     }

@@ -18,6 +18,12 @@ function getAutocompleteResults(searchTerm){
 	}).done(function(response){		
 		for (i=0; i<limit; i++){
 			cityName = response.data.predictions[i].structured_formatting.main_text;
+			var newAutoFillDiv = $("<div>")
+			newAutoFillDiv.text(cityName)
+			newAutoFillDiv.attr("data-term",cityName);
+			newAutoFillDiv.addClass("searchHistoryTerms")
+			$("#autofillResults").append(newAutoFillDiv);
+
 		}
 
 	});
