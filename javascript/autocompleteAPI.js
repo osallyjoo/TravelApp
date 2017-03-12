@@ -22,7 +22,7 @@ function getAutocompleteResults(searchTerm){
 			newAutoFillDiv.text(cityName)
 			newAutoFillDiv.attr("data-term",cityName);
 			newAutoFillDiv.addClass("searchHistoryTerms")
-			$("#autofillResults").append(newAutoFillDiv);
+			//$("#autofillResults").append(newAutoFillDiv);
 
 		}
 
