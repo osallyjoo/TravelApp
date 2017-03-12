@@ -44,14 +44,15 @@ $(document).on("click", ".searchHistoryTerms", function() {
 
 // when enter is pressed, get search term and run the functions
 $("#searchTerm").on("keyup", function(event){
-    event.preventDefault();
-    console.log(event.key);
     if (event.key==="Enter"){
-        console.log("enter was pressed");
         var searchTerm = getSearchTerm();
         getCityInfo(searchTerm,"");
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
+    } else {
+        var searchTerm = getSearchTerm();
+        getAutocompleteResults(searchTerm);
+        // run autocomplete function
     }
 
 });
@@ -146,7 +147,6 @@ function capitalizeFirstLetterEachWordSplitBySpace(string) {
         }
     } //for
     output[output.length - 1] = '';
-    console.log("Final output: " + output);
     return output;
 }
 
