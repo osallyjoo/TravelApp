@@ -10,7 +10,7 @@ p {
 
 /* Nav */
 .navTabs:hover {
-  opacity: 0.5;
+  color: #EF5D60;
   cursor: pointer;
 }
 
@@ -185,4 +185,9 @@ li {
 
 .interestAddress {
   font-size: 18px;
+}
+
+.dropDownItems {
+  background-color: white;
+  border-top: black 1px solid;
 }

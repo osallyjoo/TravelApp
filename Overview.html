@@ -6,17 +6,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
-
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 	<!--jQuery-->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
  	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
  	crossorigin="anonymous"></script>
+ 	<script
+	src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous"></script>
 
  	<!--Firebase-->
  	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
  	<!--Moment-->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!--Simple Weather-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 </head>
@@ -27,7 +31,7 @@
 		<div class="col-xs-3">
 			<div class="row">
 				<div class="col-xs-12">
-					<div>
+					<div class>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="City" id="searchTerm">
 						</div>
@@ -51,8 +55,17 @@
 						<div id="instagramBox" class="overviewContent">
 							<ul id="instafeed"></ul>
 						</div>
-						<h3>Weather</h3>
+						<h3><span class="glyphicon glyphicon-cloud"></span> Weather</h3>
 						<div id="weatherBox" class="overviewContent"></div>
+<<<<<<< HEAD
+=======
+						<h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>
+						<div id="googleBox" class="overviewContent">
+	              			<div id="map" class = "row" style="height:400px; width:100%;"></div>
+	            		</div>
+	            		<h3>Points of Interest</h3>
+	            		<div id="pointsOfInterest" class="overviewContent"></div>
+>>>>>>> c65c97f1434f8470d92a311dab5fd0c2d7706e05
             		</div>
 					<!-- TAB 2 CONTENT -->
 					<div class="contentBox" id="activitiesBox">
@@ -93,6 +106,7 @@
 <script type="text/javascript" src="javascript/weather.js"></script>
 <script type="text/javascript" src="javascript/insta.js"></script>
 <script type="text/javascript" src="javascript/zomatoAPI.js"></script>
+<script type="text/javascript" src="javascript/autocompleteAPI.js"></script>
 
 
 <!-- Google map library tool thingy-->

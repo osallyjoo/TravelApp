@@ -40,20 +40,24 @@ $("#searchBtn").on("click", function() {
 // assign on click function to search history terms
 $(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
+    $("#citySearched").text(searchTerm);
     getCityInfo(searchTerm,"");
     $("#searchTerm").val("");
 });
 
 // when enter is pressed, get search term and run the functions
 $("#searchTerm").on("keyup", function(event){
-    event.preventDefault();
-    console.log(event.key);
     if (event.key==="Enter"){
-        console.log("enter was pressed");
         var searchTerm = getSearchTerm();
+        $("#citySearched").text(searchTerm);
         getCityInfo(searchTerm,"");
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
+    } else {
+        var searchTerm = getSearchTerm();
+        $("#autofillResults").empty();
+        getAutocompleteResults(searchTerm);
+        // run autocomplete function
     }
 
 });
@@ -154,7 +158,6 @@ function capitalizeFirstLetterEachWordSplitBySpace(string) {
         }
     } //for
     output[output.length - 1] = '';
-    console.log("Final output: " + output);
     return output;
 }
 
