@@ -38,6 +38,7 @@ $("#searchBtn").on("click", function() {
 // assign on click function to search history terms
 $(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
+    $("#citySearched").text(searchTerm);
     getCityInfo(searchTerm,"");
     $("#searchTerm").val("");
 });
@@ -46,6 +47,7 @@ $(document).on("click", ".searchHistoryTerms", function() {
 $("#searchTerm").on("keyup", function(event){
     if (event.key==="Enter"){
         var searchTerm = getSearchTerm();
+        $("#citySearched").text(searchTerm);
         getCityInfo(searchTerm,"");
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
