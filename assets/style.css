@@ -10,7 +10,7 @@ p {
 
 /* Nav */
 .navTabs:hover {
-  opacity: 0.5;
+  color: #EF5D60;
   cursor: pointer;
 }
 
