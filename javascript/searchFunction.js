@@ -10,7 +10,6 @@ var config = {
 firebase.initializeApp(config);
 // create shorter version to reference firebase db
 var db = firebase.database();
-
 // Load recent searches from Firebase
 var ref = db.ref();
 ref.once("value")
@@ -21,6 +20,9 @@ ref.once("value")
         });
     });
 
+//create one instance of the google Object
+var sbgoogleObj = googleObj; //sb stands for 'search button'
+var currentSearchTerm = null //this variable holds the latest search for when the user switches tabs
 // when the search button is clicked, do something
 $("#searchBtn").on("click", function() {
     if ($("#searchTerm").val().length !== 0) {
@@ -65,6 +67,7 @@ function getSearchTerm(){
     if (isValid) {
         // if it's valid, capitalize the first letter of every word
         searchTerm = capitalizeFirstLetterEachWordSplitBySpace(searchTerm);
+        currentSearchTerm = searchTerm;
     } else {
         // if it's not valid, update page to say it's not a valid string
         console.log(searchTerm+" is not a valid string");
@@ -74,7 +77,7 @@ function getSearchTerm(){
 }
 
 // function to update the page
-function getCityInfo(searchTerm,type){
+function getCityInfo(searchTerm){
     // hide activities and restaurants box, only show overview
     $("#overviewBox").show();
     $("#activitiesBox").hide();
@@ -86,9 +89,14 @@ function getCityInfo(searchTerm,type){
     // call function to empty previous results
     clearBoxes();
     // initialize map
-    var map = initMap();
+    sbgoogleObj.mapDestinationElem = document.getElementById('map');
+    sbgoogleObj.initialize();
+    sbgoogleObj.getLocation(searchTerm);
+    //sbgoogleObj.getPlaces();
+
+
     // call google API
-    callGoogle(map,searchTerm,type);
+    //callGoogle(map,searchTerm,type);
     // call instagram API
     callInstagram(searchTerm);
     // call weather API
@@ -167,8 +175,12 @@ $("#activitiesTab").on("click", function() {
     $("#restaurantsBox").hide();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#activitiesTab").addClass("active").removeClass("inactive");
-    var searchTerm = getSearchTerm();
-    getCityInfo(searchTerm,"things to do");
+    sbgoogleObj.type = "things to do";
+    sbgoogleObj.mapDestinationElem = document.getElementById("map2");
+    sbgoogleObj.displayPlacesElem = $("#pointsOfInterest2")
+    sbgoogleObj.initialize();
+    sbgoogleObj.getLocation(currentSearchTerm);
+
 });
 // When restaurant nav link is clicked, 
 // show the overview div and hide others
@@ -178,8 +190,11 @@ $("#restaurantTab").on("click", function() {
     $("#restaurantsBox").show();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#restaurantTab").addClass("active").removeClass("inactive");
-    var searchTerm = getSearchTerm();
-    getCityInfo(searchTerm,"restaurant");
+    sbgoogleObj.type = "restaurant";
+    sbgoogleObj.mapDestinationElem = document.getElementById("map3");
+    sbgoogleObj.displayPlacesElem = $("#pointsOfInterest3");
+    sbgoogleObj.initialize();
+    sbgoogleObj.getLocation(currentSearchTerm);
 });
 
 function inputValidation(testString){

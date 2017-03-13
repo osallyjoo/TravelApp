@@ -53,12 +53,6 @@
 						</div>
 						<h3>Weather</h3>
 						<div id="weatherBox" class="overviewContent"></div>
-						<h3>Google Maps</h3>
-						<div id="googleBox" class="overviewContent">
-	              			<div id="map" class = "row" style="height:400px; width:100%;"></div>
-	            		</div>
-	            		<h3>Points of Interest</h3>
-	            		<div id="pointsOfInterest" class="overviewContent"></div>
             		</div>
 					<!-- TAB 2 CONTENT -->
 					<div class="contentBox" id="activitiesBox">
@@ -66,12 +60,24 @@
 						<div class="row">
 							<div class="col-xs-12" id="activitiesResults"></div>
 						</div>
+						<h3>Google Maps</h3>
+						<div id="googleBox" class="overviewContent">
+	              			<div id="map2" class = "row" style="height:400px; width:100%;"></div>
+	            		</div>
+	            		<h3>Points of Interest</h3>
+	            		<div id="pointsOfInterest2" class="overviewContent"></div>
 					</div>
 					<!-- TAB 3 CONTENT -->
 					<div class="contentBox" id="restaurantsBox"><h3>Restaurants</h3>
 						<div class="row">
 							<div class="col-xs-12" id="restaurantsResults"></div>
 						</div>
+						<h3>Google Maps</h3>
+						<div id="googleBox" class="overviewContent">
+	              			<div id="map3" class = "row" style="height:400px; width:100%;"></div>
+	            		</div>
+	            		<h3>Nearby Restaraunts</h3>
+	            		<div id="pointsOfInterest3" class="overviewContent"></div>
 					</div>
 				</div>
 			</div>
@@ -79,13 +85,16 @@
 	</div>
 </div>
 
+<!-- <script src="javascript/googleAPI.js"></script> -->
+<script src="javascript/googleAPI_v2.js"></script> <!-- This is the googlemaps javascript file check it out! -->
+
 <!-- Call javascript files -->
 <script type="text/javascript" src="javascript/searchFunction.js"></script>
 <script type="text/javascript" src="javascript/weather.js"></script>
 <script type="text/javascript" src="javascript/insta.js"></script>
 <script type="text/javascript" src="javascript/zomatoAPI.js"></script>
 
-<script src="javascript/googleAPI.js"></script> <!-- This is the googlemaps javascript file check it out! -->
+
 <!-- Google map library tool thingy-->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&libraries=places"></script>
 <!-- &callback=initMap -->
