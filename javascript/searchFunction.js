@@ -115,7 +115,7 @@ function getCityInfo(searchTerm) {
     var cityRef = ref.child(searchTerm);
     cityRef.once("value", function(snapshot) {
         if (snapshot.val() === null) {
-            db.ref().push({ "searchTerm": searchTerm })
+            //db.ref().push({ "searchTerm": searchTerm })
         } else {
             // if it already exists, don't push to db
         }
@@ -161,6 +161,10 @@ function pushToLocalStorage(searchTerm) {
         itemNum = localStorage.getItem("cityNumber");
         itemNum++;
         localStorage.setItem("cityNumber", itemNum);
+        if (itemNum>=6){
+            itemToDelete = itemNum - 6;
+            localStorage.removeItem("cityNumber-"+itemToDelete);
+        }
     }
     localStorage.setItem("cityNumber-" + itemNum, searchTerm);
 }
