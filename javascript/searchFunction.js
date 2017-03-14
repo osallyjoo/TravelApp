@@ -65,8 +65,9 @@ $(document).on("click", ".searchHistoryTerms", function() {
     $("#citySearched").text(searchTerm);
 
     getCityInfo(searchTerm);
-
     $("#searchTerm").val("");
+    $(".navTabs").removeClass("active").addClass("inactive");
+    $("#overviewTab").addClass("active").removeClass("inactive");
 });
 
 // when enter is pressed, get search term and run the functions
@@ -112,17 +113,6 @@ function getCityInfo(searchTerm) {
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
 
-    // push searchTerm to firebase if it doesnt exist already
-    var cityRef = ref.child(searchTerm);
-    cityRef.once("value", function(snapshot) {
-        if (snapshot.val() === null) {
-            //db.ref().push({ "searchTerm": searchTerm })
-        } else {
-            // if it already exists, don't push to db
-        }
-        // find and store previous searched cities in local storage
-    });
-
     // call function to empty previous results
     clearBoxes();
     // initialize map
@@ -132,21 +122,25 @@ function getCityInfo(searchTerm) {
     //sbgoogleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
-
+    // Call Pixabay API
     callPixabay(searchTerm);
 }
 
 function populateSearchHistory(){
     if (localStorage.getItem("cityNumber")===null){
-        // grab stuff from firebase
-    } else {
+        // if local storage doesnt have any previous results
+    } else { // if there are previous search results
+        // get the total number of search results
         var numHistoryToDisplay = localStorage.getItem("cityNumber");
+        // if it's greater than 6, we want to display the most recent searches
         if (numHistoryToDisplay>=6){
+            // specify the start of the for loop
             var iStart = numHistoryToDisplay - 4;
         } else {
             var iStart = 0;
         }
         numHistoryToDisplay++;
+        // loop through local storage and run the function to put the terms as buttons
         for (i=iStart; i<numHistoryToDisplay; i++){
             var tempCity = localStorage.getItem("cityNumber-"+i)
             putSearchTermOnPage(tempCity);
@@ -164,11 +158,13 @@ function pushToLocalStorage(searchTerm) {
         itemNum = localStorage.getItem("cityNumber");
         itemNum++;
         localStorage.setItem("cityNumber", itemNum);
+        // We only want to store 6 results, so delete the oldest search term
         if (itemNum>=6){
             itemToDelete = itemNum - 6;
             localStorage.removeItem("cityNumber-"+itemToDelete);
         }
     }
+    // update the newest search term to local storage
     localStorage.setItem("cityNumber-" + itemNum, searchTerm);
 }
 
