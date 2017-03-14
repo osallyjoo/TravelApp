@@ -33,7 +33,7 @@ ref.once("value")
         });
     });
 
-//create one instance of the google Object
+//create one instance of the google Object (Test)
 var sbgoogleObj = googleObj; //sb stands for 'search button'
 var currentSearchTerm = null; //this variable holds the latest search for when the user switches tabs
     // when the search button is clicked, do something
