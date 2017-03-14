@@ -299,6 +299,7 @@ li {
 .dropDownItems {
   background-color: white;
   border-top: black 1px solid;
+
 }
 
 footer {
@@ -306,3 +307,4 @@ footer {
   position:fixed;
   bottom:0;
 }
+

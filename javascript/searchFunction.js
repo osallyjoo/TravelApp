@@ -33,19 +33,21 @@ ref.once("value")
         });
     });
 
-
 //create one instance of the google Object
 var sbgoogleObj = googleObj; //sb stands for 'search button'
-var currentSearchTerm = null //this variable holds the latest search for when the user switches tabs
+var currentSearchTerm = null; //this variable holds the latest search for when the user switches tabs
     // when the search button is clicked, do something
+
 $("#searchBtn").on("click", function() {
     if ($("#searchTerm").val().length !== 0) {
         // use getSearchTerm function to clean up and get search term
         var searchTerm = getSearchTerm();
         $("#citySearched").text(searchTerm);
         // call function to pull API info
-        getCityInfo(searchTerm, "");
-        // call function to put search term on page  
+
+        getCityInfo(searchTerm,"");
+        // call function to put search term on page
+
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
     }
@@ -55,16 +57,19 @@ $("#searchBtn").on("click", function() {
 $(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
     $("#citySearched").text(searchTerm);
-    getCityInfo(searchTerm, "");
+
+    getCityInfo(searchTerm,"");
+
     $("#searchTerm").val("");
 });
 
 // when enter is pressed, get search term and run the functions
-$("#searchTerm").on("keyup", function(event) {
-    if (event.key === "Enter") {
+$("#searchTerm").on("keyup", function(event){
+    if (event.key==="Enter"){
         var searchTerm = getSearchTerm();
         $("#citySearched").text(searchTerm);
-        getCityInfo(searchTerm, "");
+        getCityInfo(searchTerm,"");
+
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
     } else {
@@ -76,9 +81,7 @@ $("#searchTerm").on("keyup", function(event) {
 
 });
 
-// Function to clean up and validate search term
-// test
-// function to clean up and validate search term (TEST HERE)
+// Function to clean up and validate search term.
 function getSearchTerm() {
     // get value from input box
     var searchTerm = $("#searchTerm").val().trim();
@@ -97,7 +100,7 @@ function getSearchTerm() {
 }
 
 // function to update the page
-function getCityInfo(searchTerm) {
+function getCityInfo(searchTerm){
     // hide activities and restaurants box, only show overview
     $("#overviewBox").show();
     $("#activitiesBox").hide();
@@ -117,7 +120,6 @@ function getCityInfo(searchTerm) {
         }
         localStorage.setItem("city1",searchTerm);
     });
-    
 
     // call function to empty previous results
     clearBoxes();
@@ -130,8 +132,10 @@ function getCityInfo(searchTerm) {
 
     // call google API
     //callGoogle(map,searchTerm,type);
-    // call instagram API
-    callInstagram(searchTerm);
+
+    // call pixabay API
+    callPixabay(searchTerm);
+
     // call weather API
     callWeather(searchTerm);
     // call Zomato API
@@ -143,7 +147,9 @@ function putSearchTermOnPage(searchTerm) {
     // Create divs to update recent searches
     var newSearchTerm = $("<div>").html(searchTerm);
     newSearchTerm.addClass("searchHistoryTerms btn");
-    newSearchTerm.attr("data-term", searchTerm);
+
+    newSearchTerm.attr("data-term",searchTerm);
+
     // update list on html page
     $("#recentSearches").append(newSearchTerm);
 }
@@ -164,8 +170,9 @@ function checkFirebaseForSearchTerm(searchTerm) {
 }
 
 // function to empty previous results
-function clearBoxes() {
-    $("#instafeed").empty();
+
+function clearBoxes(){
+    $(".wrapper").empty();
     $("#weatherBox").empty();
     $("#activitiesResults").empty();
     $("#restaurantsResults").empty();
