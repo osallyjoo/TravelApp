@@ -76,7 +76,7 @@ $("#searchTerm").on("keyup", function(event) {
 
 });
 
-// function to clean up and validate search term
+// Function to clean up and validate search term
 function getSearchTerm() {
     // get value from input box
     var searchTerm = $("#searchTerm").val().trim();
