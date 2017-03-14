@@ -70,30 +70,32 @@ var googleObj = {
 	
 
 	addPlaces: function(results){
-		this.displayPlacesElem.empty();
-		for(var i = 0; i < 10&&i<results.length; i++){
-	  		placeLoc = results[i].geometry.location;
-	  		this.createMarker(placeLoc);
+		if(this.displayPlacesElem!==null){
+			this.displayPlacesElem.empty();
+			for(var i = 0; i < 10&&i<results.length; i++){
+		  		placeLoc = results[i].geometry.location;
+		  		this.createMarker(placeLoc);
 
-	  		placeImg = typeof results[i].photos !== 'undefined' 
-       			? results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200})
-       			: "https://challengeinequality.luskin.ucla.edu/wp-content/uploads/sites/4/2015/12/Photo-Not-Available.jpg";
-       		placeAddress = results[i].formatted_address;
-       		placeName = results[i].name;
-       		googleSearch = this.currentLocName+" "+placeName;
-       		googleSearch = googleSearch.split(' ').join('+');
-       		placeURL = "https://www.google.com/#safe=off&q="+googleSearch+"&*" //#safe=off baby
-	  		
-	  		var interestHolder = $("<div class='interestHolder'>");
-			var interestText = $("<div class='interestText'>");
-			var newPage = $("<a>").attr("href", placeURL).attr("target", "blank");
-			var newImg = $("<img class='interestImage'>").attr("src",placeImg)
-			var divName = $("<p class='interestName'>").html(placeName);
-			var divAddress = $("<p class='interestAddress'>").html(placeAddress);
-			newPage.append(newImg);
-			interestText.append(divName).append(divAddress);
-			interestHolder.append(newPage).append(interestText);
-			this.displayPlacesElem.append(interestHolder);
+		  		placeImg = typeof results[i].photos !== 'undefined' 
+	       			? results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200})
+	       			: "https://challengeinequality.luskin.ucla.edu/wp-content/uploads/sites/4/2015/12/Photo-Not-Available.jpg";
+	       		placeAddress = results[i].formatted_address;
+	       		placeName = results[i].name;
+	       		googleSearch = this.currentLocName+" "+placeName;
+	       		googleSearch = googleSearch.split(' ').join('+');
+	       		placeURL = "https://www.google.com/#safe=off&q="+googleSearch+"&*" //#safe=off baby
+		  		
+		  		var interestHolder = $("<div class='interestHolder'>");
+				var interestText = $("<div class='interestText'>");
+				var newPage = $("<a>").attr("href", placeURL).attr("target", "blank");
+				var newImg = $("<img class='interestImage'>").attr("src",placeImg)
+				var divName = $("<p class='interestName'>").html(placeName);
+				var divAddress = $("<p class='interestAddress'>").html(placeAddress);
+				newPage.append(newImg);
+				interestText.append(divName).append(divAddress);
+				interestHolder.append(newPage).append(interestText);
+				this.displayPlacesElem.append(interestHolder);
+			}
 		}
 	}
 }

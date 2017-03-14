@@ -61,6 +61,7 @@ $("#searchBtn").on("click", function() {
 // assign on click function to search history terms
 $(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
+    currentSearchTerm = searchTerm;
     $("#citySearched").text(searchTerm);
 
     getCityInfo(searchTerm);
