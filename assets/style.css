@@ -191,3 +191,9 @@ li {
   background-color: white;
   border-top: black 1px solid;
 }
+
+footer {
+  text-align: center;
+  position:fixed;
+  bottom:0;
+}

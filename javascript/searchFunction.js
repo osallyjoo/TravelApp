@@ -15,12 +15,18 @@ var ref = db.ref();
 var currentCounter = 0;
 ref.once("value")
     .then(function(snapshot) {
+        // pull total views from firebase
         currentCounter = snapshot.val().Counter;
+        // increment counter
         currentCounter++;
+        // change the value in firebase
         db.ref().set({
             Counter:currentCounter
         });
+        // display view count on page
+        $("#visitCounter").html("Total Views: " + currentCounter);
 
+        // loop through each of the searches in firebase
         snapshot.forEach(function(childSnapshot) {
             var cityName = childSnapshot.val().searchTerm;
             //console.log(cityName);
