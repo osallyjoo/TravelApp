@@ -128,6 +128,8 @@ function getCityInfo(searchTerm){
     //sbgoogleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
+
+    callPixabay(searchTerm);
 }
 
 // function to put database on page
