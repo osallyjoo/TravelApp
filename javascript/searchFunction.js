@@ -37,6 +37,9 @@ ref.once("value")
 var sbgoogleObj = googleObj; //sb stands for 'search button'
 var currentSearchTerm = null; //this variable holds the latest search for when the user switches tabs
 // when the search button is clicked, do something
+populateSearchHistory();
+
+
 
 $("#searchBtn").on("click", function() {
     if ($("#searchTerm").val().length !== 0) {
@@ -128,6 +131,28 @@ function getCityInfo(searchTerm) {
     //sbgoogleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
+}
+
+function populateSearchHistory(){
+    if (localStorage.getItem("cityNumber")===null){
+        // grab stuff from firebase
+    } else {
+        var numHistoryToDisplay = localStorage.getItem("cityNumber");
+        if (numHistoryToDisplay>=6){
+            var iStart = numHistoryToDisplay - 4;
+            console.log(iStart);
+            console.log(numHistoryToDisplay);
+        } else {
+            var iStart = 0;
+            console.log(iStart);
+            console.log(numHistoryToDisplay);
+        }
+        numHistoryToDisplay++;
+        for (i=iStart; i<numHistoryToDisplay; i++){
+            var tempCity = localStorage.getItem("cityNumber-"+i)
+            putSearchTermOnPage(tempCity);
+        }
+    }
 }
 
 function pushToLocalStorage(searchTerm) {
