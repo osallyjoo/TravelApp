@@ -187,7 +187,7 @@ function capitalizeFirstLetterEachWordSplitBySpace(string) {
     return output;
 }
 
-// When overview nav link is clicked, 
+// When overview nav link is clicked,
 // show the overview div and hide others
 $("#overviewTab").on("click", function() {
     $("#overviewBox").show();
@@ -196,7 +196,7 @@ $("#overviewTab").on("click", function() {
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#overviewTab").addClass("active").removeClass("inactive");
 });
-// When activities nav link is clicked, 
+// When activities nav link is clicked,
 // show the overview div and hide others
 $("#activitiesTab").on("click", function() {
     $("#overviewBox").hide();
@@ -211,7 +211,7 @@ $("#activitiesTab").on("click", function() {
     sbgoogleObj.getLocation(currentSearchTerm);
 
 });
-// When restaurant nav link is clicked, 
+// When restaurant nav link is clicked,
 // show the overview div and hide others
 $("#restaurantTab").on("click", function() {
     $("#overviewBox").hide();

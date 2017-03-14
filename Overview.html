@@ -21,6 +21,8 @@
  	<!--Moment-->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- Pixabay / Mason.js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js'></script>
 	<!--Simple Weather-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 </head>
@@ -56,6 +58,11 @@
 							<ul id="instafeed"></ul>
 						</div>
 						<h3><span class="glyphicon glyphicon-cloud"></span> Weather</h3>
+						<h3 id="citySearched">Images</h3>
+						<div id="imagesBox" class="overviewContent">
+							<div class="wrapper"></div>
+						</div>
+						<h3><span class="glyphicon glyphicon-cloud"></span>Weather</h3>
 						<div id="weatherBox" class="overviewContent"></div>
 						<h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>
 						<div id="googleBox" class="overviewContent">
@@ -100,10 +107,13 @@
 <!-- <script src="javascript/googleAPI.js"></script> -->
 <script src="javascript/googleAPI_v2.js"></script> <!-- This is the googlemaps javascript file check it out! -->
 
+<!-- <script src="javascript/googleAPI.js"></script> -->
+<script src="javascript/googleAPI_v2.js"></script> <!-- This is the googlemaps javascript file check it out! -->
+
 <!-- Call javascript files -->
 <script type="text/javascript" src="javascript/searchFunction.js"></script>
+<script type="text/javascript" src="javascript/pixabay.js"></script>
 <script type="text/javascript" src="javascript/weather.js"></script>
-<script type="text/javascript" src="javascript/insta.js"></script>
 <script type="text/javascript" src="javascript/zomatoAPI.js"></script>
 <script type="text/javascript" src="javascript/autocompleteAPI.js"></script>
 
