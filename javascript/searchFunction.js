@@ -64,8 +64,9 @@ $(document).on("click", ".searchHistoryTerms", function() {
     $("#citySearched").text(searchTerm);
 
     getCityInfo(searchTerm);
-
     $("#searchTerm").val("");
+    $(".navTabs").removeClass("active").addClass("inactive");
+    $("#overviewTab").addClass("active").removeClass("inactive");
 });
 
 // when enter is pressed, get search term and run the functions
@@ -111,17 +112,6 @@ function getCityInfo(searchTerm) {
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
 
-    // push searchTerm to firebase if it doesnt exist already
-    var cityRef = ref.child(searchTerm);
-    cityRef.once("value", function(snapshot) {
-        if (snapshot.val() === null) {
-            //db.ref().push({ "searchTerm": searchTerm })
-        } else {
-            // if it already exists, don't push to db
-        }
-        // find and store previous searched cities in local storage
-    });
-
     // call function to empty previous results
     clearBoxes();
     // initialize map
@@ -131,7 +121,7 @@ function getCityInfo(searchTerm) {
     //sbgoogleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
-
+    // Call Pixabay API
     callPixabay(searchTerm);
 }
 
