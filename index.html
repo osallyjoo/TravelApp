@@ -21,8 +21,7 @@
  	<!--Moment-->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<!-- Pixabay / Mason.js -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js'></script>
+
 	<!--Simple Weather-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 </head>
@@ -56,9 +55,16 @@
 					<!-- TAB 1 CONTENT -->
 					<div class="contentBox" id="overviewBox">
 						<h3 id="citySearched">Images</h3>
-						<div id="imagesBox" class="overviewContent">
+<!-- 					<div id="imagesBox" class="overviewContent">
 							<div class="wrapper"></div>
+						</div> -->
+						<div class="frame" class="overviewContent">
+							<ul class="slidee"></ul>
 						</div>
+						<div class="scrollbar">
+							<div class="handle"></div>
+						</div>
+
 						<h3><span class="glyphicon glyphicon-cloud"></span>Weather</h3>
 						<div id="weatherBox" class="overviewContent"></div>
 						<h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>

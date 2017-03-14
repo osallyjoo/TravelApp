@@ -90,118 +90,38 @@ h4 {
 }
 
 
-
-
-/* Pixabay*/
-
-.wrapper {
-  display: none; //default
-  margin: 0.5em auto;
-  padding: 0 0.5em;
-  text-align: center;
-
-  @media(max-width: 680px) {
-    width: 100% !important;
-
-    .image {
-      width: calc(100% - 2em) !important;
-      height: 150px;
-      background-position: center !important;
-      background-size: cover !important;
-    }
-  }
-
-  .image {
-    position: relative;
-    margin: 0.5em;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      opacity: 0;
-      transition: all 0.2s;
-    }
-
-    .hidden {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, 200%) scale(0);
-      text-align: center;
-      transition: transform 0.2s;
-      color: white;
-    }
-
-    &:hover {
-      box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-
-      .overlay {
-        opacity: 1;
-      }
-      .hidden {
-        top: 50%;
-        transform: translate(-50%, -50%) scale(1);
-
-        div {
-          b {
-            font-size: 19px;
-            font-weight: 700;
-            vertical-align: bottom;
-          }
-
-          i {
-            font-size: 19px;
-            font-weight: 700;
-          }
-        }
-
-        .stats {
-          margin: 0.25em 0;
-
-          b, i {
-            vertical-align: middle;
-          }
-        }
-
-        .direct-links {
-          a {
-            display: inline-block;
-            margin: 0.5em 0.25em;
-            padding: 0.5em 1em;
-            cursor: pointer;
-            background: rgba(255,255,255,0.9);
-            text-decoration: none;
-            border-radius: 5px;
-
-            i {
-              vertical-align: middle;
-            }
-
-            &, &:visited {
-              color: black;
-            }
-
-            &:hover {
-              background: rgba(255,255,255,0.8);
-            }
-
-            &:active {
-              background: rgba(255,255,255,0.7);
-            }
-          }
-        }
-      }
-    }
-  }
+/*Images Scrolly*/
+.scrollbar {
+  width: 100%;
+  height: 10px;
 }
 
+.scrollbar .handle {
+  width: 100px;
+  height: 100px;
+  background: #222;
+}
 
+.frame {
+  width: 100%;
+  height: 160px;
+  padding: 0;
+}
+
+.frame .slidee {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+}
+
+.frame .slidee li {
+  float: left;
+  margin: 0 5px 0 0;
+  padding: 0;
+  width: 120px;
+  height: 100%;
+}
 
 
 /* Weather */
