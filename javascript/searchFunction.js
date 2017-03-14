@@ -20,7 +20,7 @@ ref.once("value")
         // increment counter
         currentCounter++;
         // change the value in firebase
-        db.ref().set({
+        db.ref().update({
             Counter:currentCounter
         });
         // display view count on page
@@ -77,6 +77,8 @@ $("#searchTerm").on("keyup", function(event) {
 });
 
 // Function to clean up and validate search term
+// test
+// function to clean up and validate search term (TEST HERE)
 function getSearchTerm() {
     // get value from input box
     var searchTerm = $("#searchTerm").val().trim();
@@ -113,6 +115,7 @@ function getCityInfo(searchTerm) {
         } else {
             // if it already exists, don't push to db
         }
+        localStorage.setItem("city1",searchTerm);
     });
     
 
