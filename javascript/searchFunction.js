@@ -111,9 +111,7 @@ function getCityInfo(searchTerm){
     var cityRef = ref.child(searchTerm);
     console.log(cityRef);
     cityRef.once("value", function(snapshot) {
-        console.log(snapshot.val())
         if (snapshot.val() === null) {
-            console.log("added")
             db.ref().push({ "searchTerm": searchTerm })
         } else {
             // if it already exists, don't push to db
@@ -128,18 +126,11 @@ function getCityInfo(searchTerm){
     sbgoogleObj.initialize();
     sbgoogleObj.getLocation(searchTerm);
     //sbgoogleObj.getPlaces();
-
-
-    // call google API
-    //callGoogle(map,searchTerm,type);
-
-    // call pixabay API
-    callPixabay(searchTerm);
-
     // call weather API
     callWeather(searchTerm);
-    // call Zomato API
-    //callZomato(searchTerm);
+
+    // call pixabay API
+    callPixabay();
 }
 
 // function to put database on page
