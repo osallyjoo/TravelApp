@@ -135,15 +135,19 @@ function getCityInfo(searchTerm) {
 
 function populateSearchHistory(){
     if (localStorage.getItem("cityNumber")===null){
-        // grab stuff from firebase
-    } else {
+        // if local storage doesnt have any previous results
+    } else { // if there are previous search results
+        // get the total number of search results
         var numHistoryToDisplay = localStorage.getItem("cityNumber");
+        // if it's greater than 6, we want to display the most recent searches
         if (numHistoryToDisplay>=6){
+            // specify the start of the for loop
             var iStart = numHistoryToDisplay - 4;
         } else {
             var iStart = 0;
         }
         numHistoryToDisplay++;
+        // loop through local storage and run the function to put the terms as buttons
         for (i=iStart; i<numHistoryToDisplay; i++){
             var tempCity = localStorage.getItem("cityNumber-"+i)
             putSearchTermOnPage(tempCity);
@@ -161,11 +165,13 @@ function pushToLocalStorage(searchTerm) {
         itemNum = localStorage.getItem("cityNumber");
         itemNum++;
         localStorage.setItem("cityNumber", itemNum);
+        // We only want to store 6 results, so delete the oldest search term
         if (itemNum>=6){
             itemToDelete = itemNum - 6;
             localStorage.removeItem("cityNumber-"+itemToDelete);
         }
     }
+    // update the newest search term to local storage
     localStorage.setItem("cityNumber-" + itemNum, searchTerm);
 }
 
