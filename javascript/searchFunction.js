@@ -21,7 +21,7 @@ ref.once("value")
         currentCounter++;
         // change the value in firebase
         db.ref().update({
-            Counter:currentCounter
+            Counter: currentCounter
         });
         // display view count on page
         $("#visitCounter").html("Total Views: " + currentCounter);
@@ -36,7 +36,7 @@ ref.once("value")
 //create one instance of the google Object (Test)
 var sbgoogleObj = googleObj; //sb stands for 'search button'
 var currentSearchTerm = null; //this variable holds the latest search for when the user switches tabs
-    // when the search button is clicked, do something
+// when the search button is clicked, do something
 
 $("#searchBtn").on("click", function() {
     if ($("#searchTerm").val().length !== 0) {
@@ -45,11 +45,13 @@ $("#searchBtn").on("click", function() {
         $("#citySearched").text(searchTerm);
         // call function to pull API info
 
-        getCityInfo(searchTerm,"");
+        getCityInfo(searchTerm);
+        pushToLocalStorage(searchTerm);
         // call function to put search term on page
 
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
+
     }
 });
 
@@ -58,18 +60,18 @@ $(document).on("click", ".searchHistoryTerms", function() {
     var searchTerm = $(this).attr("data-term");
     $("#citySearched").text(searchTerm);
 
-    getCityInfo(searchTerm,"");
+    getCityInfo(searchTerm);
 
     $("#searchTerm").val("");
 });
 
 // when enter is pressed, get search term and run the functions
-$("#searchTerm").on("keyup", function(event){
-    if (event.key==="Enter"){
+$("#searchTerm").on("keyup", function(event) {
+    if (event.key === "Enter") {
         var searchTerm = getSearchTerm();
         $("#citySearched").text(searchTerm);
-        getCityInfo(searchTerm,"");
-
+        getCityInfo(searchTerm);
+        pushToLocalStorage(searchTerm);
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
     } else {
@@ -100,23 +102,21 @@ function getSearchTerm() {
 }
 
 // function to update the page
-function getCityInfo(searchTerm){
+function getCityInfo(searchTerm) {
     // hide activities and restaurants box, only show overview
     $("#overviewBox").show();
     $("#activitiesBox").hide();
     $("#restaurantsBox").hide();
 
-
     // push searchTerm to firebase if it doesnt exist already
     var cityRef = ref.child(searchTerm);
-    console.log(cityRef);
     cityRef.once("value", function(snapshot) {
         if (snapshot.val() === null) {
             db.ref().push({ "searchTerm": searchTerm })
         } else {
             // if it already exists, don't push to db
         }
-        localStorage.setItem("city1",searchTerm);
+        // find and store previous searched cities in local storage
     });
 
     // call function to empty previous results
@@ -130,13 +130,27 @@ function getCityInfo(searchTerm){
     callWeather(searchTerm);
 }
 
+function pushToLocalStorage(searchTerm) {
+    // if cityNumber is not already stored in local storage, create it
+    if (localStorage.getItem("cityNumber") === null) {
+        localStorage.setItem("cityNumber", 0);
+        var itemNum = 0;
+    } else {
+        // if it's already there, get what the number is
+        itemNum = localStorage.getItem("cityNumber");
+        itemNum++;
+        localStorage.setItem("cityNumber", itemNum);
+    }
+    localStorage.setItem("cityNumber-" + itemNum, searchTerm);
+}
+
 // function to put database on page
 function putSearchTermOnPage(searchTerm) {
     // Create divs to update recent searches
     var newSearchTerm = $("<div>").html(searchTerm);
     newSearchTerm.addClass("searchHistoryTerms btn");
 
-    newSearchTerm.attr("data-term",searchTerm);
+    newSearchTerm.attr("data-term", searchTerm);
 
     // update list on html page
     $("#recentSearches").append(newSearchTerm);
@@ -159,7 +173,7 @@ function checkFirebaseForSearchTerm(searchTerm) {
 
 // function to empty previous results
 
-function clearBoxes(){
+function clearBoxes() {
     $(".wrapper").empty();
     $("#weatherBox").empty();
     $("#activitiesResults").empty();
