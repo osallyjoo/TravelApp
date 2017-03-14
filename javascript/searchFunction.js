@@ -140,12 +140,8 @@ function populateSearchHistory(){
         var numHistoryToDisplay = localStorage.getItem("cityNumber");
         if (numHistoryToDisplay>=6){
             var iStart = numHistoryToDisplay - 4;
-            console.log(iStart);
-            console.log(numHistoryToDisplay);
         } else {
             var iStart = 0;
-            console.log(iStart);
-            console.log(numHistoryToDisplay);
         }
         numHistoryToDisplay++;
         for (i=iStart; i<numHistoryToDisplay; i++){
