@@ -10,7 +10,6 @@ function callPixabay(searchTerm) {
         url: queryURL,
         method: "GET"
     }).done(function(response) {
-        console.log(response);
         for (var i = 0; i < 12; i++) {
             var imageURL = response.hits[i].previewURL;
             var newImgElem = $("<img class='pixabayImg'>").attr("src", imageURL);
