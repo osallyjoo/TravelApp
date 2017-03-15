@@ -27,8 +27,14 @@ function getAutocompleteResults(searchTerm) {
                 cityArray[i] = cityName;
             }
         }
+        console.log(cityArray);
+        var uniqueCity = [];
+        $.each(cityArray, function (i,el){
+            if($.inArray(el,uniqueCity) === -1) uniqueCity.push(el)
+        });
+        console.log(uniqueCity);
         $("#searchTerm").autocomplete({
-            source: cityArray
+            source: uniqueCity
         });
     });
 }
