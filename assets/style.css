@@ -233,6 +233,10 @@ li {
   font-size: 12px;
 }
 
+.interestAddress:hover{
+  cursor: pointer;
+}
+
 .dropDownItems {
   background-color: white;
   border-top: black 1px solid;

@@ -34,7 +34,7 @@ ref.once("value")
     });
 
 //create one instance of the google Object (Test)
-var sbgoogleObj = googleObj; //sb stands for 'search button'
+//var googleObj = googleObj; //sb stands for 'search button'
 var currentSearchTerm = null; //this variable holds the latest search for when the user switches tabs
 // when the search button is clicked, do something
 populateSearchHistory();
@@ -79,6 +79,8 @@ $("#searchTerm").on("keyup", function(event) {
         pushToLocalStorage(searchTerm);
         putSearchTermOnPage(searchTerm);
         $("#searchTerm").val("");
+        $(".navTabs").removeClass("active").addClass("inactive");
+        $("#overviewTab").addClass("active").removeClass("inactive");
     } else {
         var searchTerm = getSearchTerm();
         $("#autofillResults").empty();
@@ -119,10 +121,10 @@ function getCityInfo(searchTerm) {
     // call function to empty previous results
     clearBoxes();
     // initialize map
-    // sbgoogleObj.mapDestinationElem = document.getElementById('map');
-    // sbgoogleObj.initialize();
-    // sbgoogleObj.getLocation(searchTerm);
-    //sbgoogleObj.getPlaces();
+    // googleObj.mapDestinationElem = document.getElementById('map');
+    // googleObj.initialize();
+    // googleObj.getLocation(searchTerm);
+    //googleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
     // Call Pixabay API
@@ -243,11 +245,11 @@ $("#activitiesTab").on("click", function() {
     $("#restaurantsBox").hide();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#activitiesTab").addClass("active").removeClass("inactive");
-    sbgoogleObj.type = "things to do";
-    sbgoogleObj.mapDestinationElem = document.getElementById("map2");
-    sbgoogleObj.displayPlacesElem = $("#imgList1")
-    sbgoogleObj.initialize();
-    sbgoogleObj.getLocation(currentSearchTerm);
+    googleObj.type = "things to do";
+    googleObj.mapDestinationElem = document.getElementById("map2");
+    googleObj.displayPlacesElem = $("#imgList1")
+    googleObj.initialize();
+    googleObj.getLocation(currentSearchTerm);
 
 });
 // When restaurant nav link is clicked,
@@ -258,11 +260,11 @@ $("#restaurantTab").on("click", function() {
     $("#restaurantsBox").show();
     $(".navTabs").removeClass("active").addClass("inactive");
     $("#restaurantTab").addClass("active").removeClass("inactive");
-    sbgoogleObj.type = "restaurant";
-    sbgoogleObj.mapDestinationElem = document.getElementById("map3");
-    sbgoogleObj.displayPlacesElem = $("#imgList2");
-    sbgoogleObj.initialize();
-    sbgoogleObj.getLocation(currentSearchTerm);
+    googleObj.type = "restaurant";
+    googleObj.mapDestinationElem = document.getElementById("map3");
+    googleObj.displayPlacesElem = $("#imgList2");
+    googleObj.initialize();
+    googleObj.getLocation(currentSearchTerm);
 });
 
 function inputValidation(testString) {

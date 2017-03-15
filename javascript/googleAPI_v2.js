@@ -109,7 +109,7 @@ var googleObj = {
 				var newPage = $("<a>").attr("href", placeURL).attr("target", "blank"); //This is all the elements we're going to add to the page
 				var newImg = $("<img class='interestImage'>").attr("src",placeImg)
 				var divName = $("<p class='interestName'>").html(placeName);
-				var divAddress = $("<p class='interestAddress'>").html(placeAddress);
+				var divAddress = $("<a class='interestAddress'>").attr("lng",placeLoc.lng).attr("lat",placeLoc.lat).html(placeAddress);
 				
 				newPage.append(newImg); //this makes the image clickable
 				interestText.append(newPage).append(divName).append(divAddress);
@@ -120,3 +120,17 @@ var googleObj = {
 		}
 	}
 }
+
+$("#pointsOfInterest").on("click",".interestAddress",function(){
+	console.log("address has been clicked");
+	var parselng = parseFloat($(this).attr("lng"));
+	var parselat = parseFloat($(this).attr("lat"));
+	
+	var parseLoc = {
+		lat: parselat,
+		lng: parselng
+	}
+
+	googleObj.map.setCenter(parseLoc);
+	googleObj.map.setZoom(16);
+})
