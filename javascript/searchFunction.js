@@ -82,7 +82,10 @@ $("#searchTerm").on("keyup", function(event) {
     } else {
         var searchTerm = getSearchTerm();
         $("#autofillResults").empty();
-        getAutocompleteResults(searchTerm);
+        if(searchTerm.length>4){
+            //threw this in here so autocomplete only starts after the user enters 4 characters
+            getAutocompleteResults(searchTerm);
+        }
         // run autocomplete function
     }
 
@@ -116,9 +119,9 @@ function getCityInfo(searchTerm) {
     // call function to empty previous results
     clearBoxes();
     // initialize map
-    sbgoogleObj.mapDestinationElem = document.getElementById('map');
-    sbgoogleObj.initialize();
-    sbgoogleObj.getLocation(searchTerm);
+    // sbgoogleObj.mapDestinationElem = document.getElementById('map');
+    // sbgoogleObj.initialize();
+    // sbgoogleObj.getLocation(searchTerm);
     //sbgoogleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
@@ -242,7 +245,7 @@ $("#activitiesTab").on("click", function() {
     $("#activitiesTab").addClass("active").removeClass("inactive");
     sbgoogleObj.type = "things to do";
     sbgoogleObj.mapDestinationElem = document.getElementById("map2");
-    sbgoogleObj.displayPlacesElem = $("#pointsOfInterest2")
+    sbgoogleObj.displayPlacesElem = $("#imgList1")
     sbgoogleObj.initialize();
     sbgoogleObj.getLocation(currentSearchTerm);
 
@@ -257,7 +260,7 @@ $("#restaurantTab").on("click", function() {
     $("#restaurantTab").addClass("active").removeClass("inactive");
     sbgoogleObj.type = "restaurant";
     sbgoogleObj.mapDestinationElem = document.getElementById("map3");
-    sbgoogleObj.displayPlacesElem = $("#pointsOfInterest3");
+    sbgoogleObj.displayPlacesElem = $("#imgList2");
     sbgoogleObj.initialize();
     sbgoogleObj.getLocation(currentSearchTerm);
 });

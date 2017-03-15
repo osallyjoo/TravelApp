@@ -206,8 +206,10 @@ li {
 .interestHolder {
   display: inline-block;
   vertical-align: top;
+  display: table-cell;
+  text-align: center;
   padding:5px 10px;
-  width: 33%;
+  width: 200px;
 }
 
 .interestImage {

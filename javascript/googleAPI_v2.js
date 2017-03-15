@@ -104,7 +104,7 @@ var googleObj = {
 	       		googleSearch = googleSearch.split(' ').join('+');
 	       		placeURL = "https://www.google.com/#safe=off&q="+googleSearch+"&*" //#safe=off baby
 		  		
-		  		var interestHolder = $("<div class='interestHolder'>");
+		  		var interestHolder = $("<li class='interestHolder'>");
 				var interestText = $("<div class='interestText'>");
 				var newPage = $("<a>").attr("href", placeURL).attr("target", "blank"); //This is all the elements we're going to add to the page
 				var newImg = $("<img class='interestImage'>").attr("src",placeImg)
@@ -112,8 +112,8 @@ var googleObj = {
 				var divAddress = $("<p class='interestAddress'>").html(placeAddress);
 				
 				newPage.append(newImg); //this makes the image clickable
-				interestText.append(divName).append(divAddress);
-				interestHolder.append(newPage).append(interestText);
+				interestText.append(newPage).append(divName).append(divAddress);
+				interestHolder.append(interestText);
 
 				this.displayPlacesElem.append(interestHolder); //add it to the page to the target element!
 			}
