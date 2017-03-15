@@ -72,12 +72,12 @@ var googleObj = {
 	addPlaces: function(results){
 		if(this.displayPlacesElem!==null){
 			this.displayPlacesElem.empty();
-			for(var i = 0; i < 10&&i<results.length; i++){
+			for(var i = 0; i < 9 &&i<results.length; i++){
 		  		placeLoc = results[i].geometry.location;
 		  		this.createMarker(placeLoc);
 
 		  		placeImg = typeof results[i].photos !== 'undefined' 
-	       			? results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200})
+	       			? results[i].photos[0].getUrl({'maxWidth': 240, 'maxHeight': 240})
 	       			: "https://challengeinequality.luskin.ucla.edu/wp-content/uploads/sites/4/2015/12/Photo-Not-Available.jpg";
 	       		placeAddress = results[i].formatted_address;
 	       		placeName = results[i].name;
