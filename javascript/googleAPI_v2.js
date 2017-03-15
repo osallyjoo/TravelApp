@@ -54,7 +54,6 @@ var googleObj = {
 		}
 		queryObject = $.param(queryObject); //convert to a passable string
 		queryURL =  "https://maps.googleapis.com/maps/api/geocode/json?"+queryObject+"&key=AIzaSyB5oi96xh3OkmxpVvwpymxbWqXnGHe4vMY";
-		console.log(queryURL);
 		$.ajax({
 			url: queryURL,
 			method: "GET"
@@ -121,8 +120,8 @@ var googleObj = {
 	}
 }
 
-$("#pointsOfInterest").on("click",".interestAddress",function(){
-	console.log("address has been clicked");
+$(".pointsOfInterest").on("click",".interestAddress",function(){
+
 	var parselng = parseFloat($(this).attr("lng"));
 	var parselat = parseFloat($(this).attr("lat"));
 	
