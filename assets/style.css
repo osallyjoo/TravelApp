@@ -169,7 +169,7 @@ h4 {
 }
 
 /* Map */
-#map {
+#map, #map2, #map3 {
   margin: 0;
 }
 
@@ -195,13 +195,15 @@ li {
 
 /* Points of Interest */
 .interestHolder {
-  display: block;
-  padding-bottom: 10px;
+  display: inline-block;
+  vertical-align: top;
+  padding:5px 10px;
+  width: 33%;
 }
 
 .interestImage {
+  max-width: 100%;
   display: inline-block;
-  padding-right: 10px;
 }
 
 .interestText {
@@ -209,11 +211,11 @@ li {
 }
 
 .interestName {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .interestAddress {
-  font-size: 18px;
+  font-size: 12px;
 }
 
 .dropDownItems {
