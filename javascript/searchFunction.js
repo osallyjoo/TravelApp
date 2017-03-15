@@ -263,7 +263,6 @@ $("#restaurantTab").on("click", function() {
 });
 
 function inputValidation(testString) {
-    return true;
     //This function tests if the argument is alphanumeric and returns true or false accordingly
-    return (testString == /^([0-9]|[a-z])+([0-9a-z]+)$/i) ? true : false;
+    return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(testString);
 }
