@@ -2,7 +2,7 @@
 *    PIXABAY API CALL        *
 *******************************/
 function callPixabay(searchTerm) {
-
+    $(".slidee").html("")
 
     var queryURL = "https://pixabay.com/api/?username=mjweaver01&key=1631539-db8210cabd2636c6df59812df&q=" + searchTerm + "&image_type=photo";
 
@@ -10,18 +10,12 @@ function callPixabay(searchTerm) {
         url: queryURL,
         method: "GET"
     }).done(function(response) {
-
         console.log(response);
-
-
-        for (var i = 0; i < 10; i++) {
-            var image = response.hits[i].previewURL;
-            console.log(image);
-            var newImgElem = $("<img>").attr("src", image);
-
+        for (var i = 0; i < 12; i++) {
+            var imageURL = response.hits[i].previewURL;
+            var newImgElem = $("<img class='pixabayImg'>").attr("src", imageURL);
             $(".slidee").append(newImgElem);
         }
-
     });
 
 }
