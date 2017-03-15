@@ -123,6 +123,12 @@ h4 {
   height: 100%;
 }
 
+.pixabayImg {
+  vertical-align: top;
+  padding: 5px;
+  width: 200px;
+}
+
 
 /* Weather */
 #weatherBox {
@@ -137,11 +143,14 @@ h4 {
 .currentTemp {
   font-size: 30px;
   margin-bottom: 5px;
+  display: inline-block;
 }
 
 .currentCond {
   font-size:20px;
   margin-bottom: 5px;
+  padding-left: 10px;
+  display: inline-block;
 }
 
 #weatherBox ul {
@@ -204,6 +213,10 @@ li {
 .interestImage {
   max-width: 100%;
   display: inline-block;
+}
+
+.interestImage:hover {
+  opacity:0.5;
 }
 
 .interestText {
