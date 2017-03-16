@@ -8,6 +8,21 @@ p {
   margin: 5px 0;
 }
 
+/* Logo */
+#logo {
+    padding-top: 25px;
+    padding-left: 2px;
+}
+
+#parachute {
+    padding-bottom: 8px;
+}
+
+#phrase {
+    padding-left: 110px;
+    color: black;
+}
+
 /* Nav */
 .navTabs:hover {
   color: #EF5D60;
@@ -46,6 +61,7 @@ li.inactive {
 
 #searchTerm {
   border: 1px solid #76818E;
+/*  width: 260px;*/
 }
 
 #searchBtn {
@@ -53,6 +69,7 @@ li.inactive {
   border: none;
   padding: 10px;
   font-size: 20px;
+  float: right;
 }
 
 .glyphicon-search {
@@ -90,38 +107,28 @@ h4 {
 }
 
 
-/*Images Scrolly*/
-.scrollbar {
-  width: 100%;
-  height: 10px;
+/* Images */
+.pixabayImg {
+  vertical-align: top;
+  padding: 5px;
+  width: 200px;
+/*
+  -webkit-transition: all .2 ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+*/
 }
 
-.scrollbar .handle {
-  width: 100px;
-  height: 100px;
-  background: #222;
+/*
+.transition {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
 }
+*/
 
-.frame {
-  width: 100%;
-  height: 160px;
-  padding: 0;
-}
-
-.frame .slidee {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  list-style: none;
-}
-
-.frame .slidee li {
-  float: left;
-  margin: 0 5px 0 0;
-  padding: 0;
-  width: 120px;
-  height: 100%;
-}
 
 .pixabayImg {
   vertical-align: top;
