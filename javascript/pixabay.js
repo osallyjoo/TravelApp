@@ -11,7 +11,7 @@ function callPixabay(searchTerm) {
         method: "GET"
     }).done(function(response) {
         for (var i = 0; i < 12; i++) {
-            var imageURL = response.hits[i].previewURL;
+            var imageURL = response.hits[i].webformatURL;
             var newImgElem = $("<img class='pixabayImg'>").attr("src", imageURL);
             $(".slidee").append(newImgElem);
         }
