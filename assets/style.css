@@ -56,12 +56,12 @@ li.inactive {
 /* Search */
 .form-group {
   display: inline-block;
-  width: 70%;
+  width: 100%;
+  position: relative;
 }
 
 #searchTerm {
   border: 1px solid #76818E;
-/*  width: 260px;*/
 }
 
 #searchBtn {
@@ -69,7 +69,9 @@ li.inactive {
   border: none;
   padding: 10px;
   font-size: 20px;
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .glyphicon-search {
@@ -121,6 +123,8 @@ h4 {
   -o-transition: all .2s ease-in-out;
   -ms-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+  position: relative;
+  z-index: 9;
 }
 
 
