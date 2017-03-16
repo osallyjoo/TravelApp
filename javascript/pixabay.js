@@ -20,7 +20,7 @@ function callPixabay(searchTerm) {
 
 }
 
-
+// test
 //$(".pixabayImg").hover(function() {
 ////                $(this).addClass('transition');
 ////            }. function() {
