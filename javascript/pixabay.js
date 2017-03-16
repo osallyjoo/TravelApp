@@ -19,10 +19,3 @@ function callPixabay(searchTerm) {
     });
 
 }
-
-
-//$(".pixabayImg").hover(function() {
-////                $(this).addClass('transition');
-////            }. function() {
-////                $(this).removeClass('transition');
-////            });
