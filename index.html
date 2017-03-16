@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Trippy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="UTF-8"> 
+	<meta charset="UTF-8">
 	<!-- our chosen font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<!-- Bootstrap -->
@@ -21,92 +22,101 @@
 	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
 	crossorigin="anonymous"></script>
 
- 	<!--Firebase-->
- 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
- 	<!--Moment-->
+     <!--Firebase-->
+     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+     <!--Moment-->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- jQuery again? -->
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	<!--Simple Weather-->
+    <!--Simple Weather-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 
     <!-- Google map library tool thingy-->
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoQo7Ti-V1vEqXKdN19c9u3wNf0q_MqmM&libraries=places"></script>
 	<!-- Google News -->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 </head>
 
 <body>
 <div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class>
-						<div class="form-group">
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class>
+                        <div class="logo">
+                            <img id="parachute" src="assets/images/parachute50.png" alt="">
+                            <img id="logo" src="assets/images/trippy.png" alt="">
+                            <p id="phrase">my personal travel guide</p>
+                        </div>
+                        <div class="form-group">
 
-							<input type="text" autocomplete="off" class="form-control" placeholder="City" id="searchTerm">
+                            <input type="text" autocomplete="off" class="form-control" placeholder="City" id="searchTerm">
 
-						</div>
-						<div class="btn" id="searchBtn"><span class="glyphicon glyphicon-search"></span></div>
-					</div>
-					<div id="recentSearches"><h3>Recent Searches</h3></div>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-9">
-			<div class="row">
-				<div class="col-xs-12">
-					<ul class="nav nav-tabs nav-justified">
-						<li role="presentation" class="navTabs active" id="overviewTab">Overview</li>
-						<li class="navTabs inactive" id="activitiesTab">Activities</li>
-						<li class="navTabs inactive" id="restaurantTab">Restaurants</li>
-					</ul>
-					<!-- TAB 1 CONTENT -->
-					<div class="contentBox" id="overviewBox">
-						<h3><span class="glyphicon glyphicon-cloud"></span>  Weather</h3>
-						<div id="weatherBox" class="overviewContent"></div>
-						<h3 ><span class="glyphicon glyphicon-map-marker"></span> <span id="citySearched"> Images</span></h3>
-						<div class="slidee"></div>
-            		</div>
-					<!-- TAB 2 CONTENT -->
-					<div class="contentBox" id="activitiesBox">
-						<h3>Points of Interest</h3>
-						<div class="row">
-							<div class="col-xs-12" id="pointsOfInterest" style = "overflow: auto;">
-								<ul id = "imgList1" style = "white-space: nowrap; list-style: none; display: table;"></ul>
-							</div>
-						</div>
-						<h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>
-						<div id="googleBox" class="overviewContent">
-	              			<div id="map2" class = "row" style="height:400px; width:100%;"></div>
-	            		</div>
-					</div>
-					<!-- TAB 3 CONTENT -->
-					<div class="contentBox" id="restaurantsBox"><h3> Nearby Restaurants</h3>
-						<div class="row">
-							<div class="col-xs-12" id="pointsOfInterest" style = "overflow: auto">
-								<ul id = "imgList2" style = "white-space: nowrap; list-style: none; display: table;"></ul>
-							</div>
-						</div>
-						<h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>
-						<div id="googleBox" class="overviewContent">
-	              			<div id="map3" class = "row" style="height:400px; width:100%;"></div>
-	            		</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                        </div>
+                        <div class="btn" id="searchBtn"><span class="glyphicon glyphicon-search"></span></div>
+                    </div>
+                    <div id="recentSearches"><h3>Recent Searches</h3></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li role="presentation" class="navTabs active" id="overviewTab">Overview</li>
+                        <li class="navTabs inactive" id="activitiesTab">Activities</li>
+                        <li class="navTabs inactive" id="restaurantTab">Restaurants</li>
+                    </ul>
+                    <!-- TAB 1 CONTENT -->
+                    <div class="contentBox" id="overviewBox">
+                        <h3><span class="glyphicon glyphicon-cloud"></span>  Weather</h3>
+                        <div id="weatherBox" class="overviewContent"></div>
+                        <h3 ><span class="glyphicon glyphicon-map-marker"></span> <span id="citySearched">Images</span></h3>
+                        <div class="slidee"></div>
+
+                    </div>
+                    <!-- TAB 2 CONTENT -->
+                    <div class="contentBox" id="activitiesBox">
+                        <h3>Points of Interest</h3>
+                        <div class="row">
+                            <div class="col-xs-12" id="pointsOfInterest" style = "overflow: auto;">
+                                <ul id = "imgList1" style = "white-space: nowrap; list-style: none; display: table;"></ul>
+                            </div>
+                        </div>
+                        <h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>
+                        <div id="googleBox" class="overviewContent">
+                              <div id="map2" class = "row" style="height:400px; width:100%;"></div>
+                        </div>
+                    </div>
+                    <!-- TAB 3 CONTENT -->
+                    <div class="contentBox" id="restaurantsBox"><h3> Nearby Restaurants</h3>
+                        <div class="row">
+                            <div class="col-xs-12" id="pointsOfInterest" style = "overflow: auto">
+                                <ul id = "imgList2" style = "white-space: nowrap; list-style: none; display: table;"></ul>
+                            </div>
+                        </div>
+                        <h3><span class="glyphicon glyphicon-map-marker"></span> Map</h3>
+                        <div id="googleBox" class="overviewContent">
+                              <div id="map3" class = "row" style="height:400px; width:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <footer>
-	<div id="visitCounter"></div>
+    <div id="visitCounter"></div>
 </footer>
 
 
 <!-- Call javascript files -->
-<script type="text/javascript" src="javascript/googleAPI_v2.js">   </script> 
+
+<script type="text/javascript" src="javascript/googleAPI_v2.js">   </script>
 <script type="text/javascript" src="javascript/pixabay.js">        </script>
 <script type="text/javascript" src="javascript/weather.js">        </script>
 <script type="text/javascript" src="javascript/autocompleteAPI.js"></script>
