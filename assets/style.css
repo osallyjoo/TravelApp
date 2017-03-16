@@ -203,11 +203,14 @@ li {
   display: table-cell;
   text-align: center;
   padding:5px 10px;
-  width: 200px;
+  overflow: auto;
 }
 
+.interestText {
+  display: inline-block;
+}
 .interestImage {
-  max-width: 100%;
+  max-height: 200px;
   display: inline-block;
 }
 
@@ -215,26 +218,38 @@ li {
   opacity:0.5;
 }
 
-.interestText {
-  display: inline-block;
-}
 
 .interestName {
   font-size: 18px;
+  width: 100%;
+  line-height: 18px;
 }
 
 .interestAddress {
   font-size: 12px;
+  line-height: 12px;
+  width: 100%;
+  word-wrap: normal;
 }
 
-.interestAddress:hover{
+.interestAddress:hover {
   cursor: pointer;
+  color: #EF5D60;
+  text-decoration: none;
 }
 
 .dropDownItems {
   background-color: white;
   border-top: black 1px solid;
+}
 
+li.interestHolder {
+  text-align: left;
+}
+
+#imgList1 {
+  text-align: left;
+  white-space: initial !important;
 }
 
 footer {
