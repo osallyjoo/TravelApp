@@ -95,7 +95,7 @@ var googleObj = {
 		  		this.createMarker(placeLoc); //add that freaking marker
 
 		  		placeImg = typeof results[i].photos !== 'undefined'  //grab the image (but if there is no image display -Photo - not available)
-	       			? results[i].photos[0].getUrl({'maxWidth': 200, 'maxHeight': 200})
+	       			? results[i].photos[0].getUrl({'maxHeight': 250})
 	       			: "https://challengeinequality.luskin.ucla.edu/wp-content/uploads/sites/4/2015/12/Photo-Not-Available.jpg";
 	       		placeAddress = results[i].formatted_address; //grab that address
 	       		placeName = results[i].name; //get the name
@@ -121,7 +121,6 @@ var googleObj = {
 }
 
 $(".pointsOfInterest").on("click",".interestAddress",function(){
-
 	var parselng = parseFloat($(this).attr("lng"));
 	var parselat = parseFloat($(this).attr("lat"));
 	
