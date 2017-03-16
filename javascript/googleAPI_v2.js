@@ -121,7 +121,6 @@ var googleObj = {
 }
 
 $(".pointsOfInterest").on("click",".interestAddress",function(){
-
 	var parselng = parseFloat($(this).attr("lng"));
 	var parselat = parseFloat($(this).attr("lat"));
 	
