@@ -112,28 +112,15 @@ h4 {
   vertical-align: top;
   padding: 5px;
   width: 200px;
-/*
+}
+
+.pixabayImg:hover {
+   transform: scale(2);
   -webkit-transition: all .2 ease-in-out;
   -moz-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   -ms-transition: all .2s ease-in-out;
-*/
-}
-
-/*
-.transition {
-  -webkit-transform: scale(2);
-  -moz-transform: scale(2);
-  -o-transform: scale(2);
-  transform: scale(2);
-}
-*/
-
-
-.pixabayImg {
-  vertical-align: top;
-  padding: 5px;
-  width: 200px;
+  transition: all .2s ease-in-out;
 }
 
 
