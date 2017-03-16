@@ -78,17 +78,23 @@ li.inactive {
   color: #333;
 }
 
+.glyphicon-bookmark {
+  font-size: 21px;
+}
+
 #recentSearches {
   background-color: white;
   padding: 10px 8px;
   border-radius: 4px;
   border: 1px solid #76818E;
   font-size:16px;
+  margin-bottom: 16px;
 }
 
 h3 {
   border-bottom: 1px solid #76818E;
   margin-top: 10px;
+  font-size: 25px;
 }
 
 /* Content Boxes */
@@ -256,9 +262,22 @@ li.interestHolder {
   white-space: initial !important;
 }
 
+
+/* Footer */
 footer {
-  text-align: center;
-  position:fixed;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
+
+#visitCounter {
+  float: left;
+  position: fixed;
+  bottom: 0;
+}
+
+p#copyright {
+  text-align: center;
+}
+
 
