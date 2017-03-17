@@ -72,7 +72,7 @@ $(document).on("click", ".searchHistoryTerms", function() {
 
 // when enter is pressed, get search term and run the functions
 $("#searchTerm").on("keyup", function(event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && $("#searchTerm").val().length !== 0) {
         var searchTerm = getSearchTerm();
         $("#citySearched").text(searchTerm);
         getCityInfo(searchTerm);
