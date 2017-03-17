@@ -280,10 +280,9 @@ li.interestHolder {
 /* Footer */
 footer {
   position: fixed;
-  background-color: #656e7a;
   bottom: 0;
+  background-color: #656e7a;
   width: 100%;
-  height: 40px;
 }
 
 p#copyright, p#visitCounter {
@@ -292,6 +291,10 @@ p#copyright, p#visitCounter {
   position: relative;
   font-size: 10px;
   color: white;
+}
+
+#visitCounter, #copyright {
+  margin: 3px 0;
 }
 
 @media only screen and (max-width: 531px) {
