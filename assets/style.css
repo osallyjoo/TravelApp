@@ -44,6 +44,11 @@ li a {
 
 }
 
+li.navTabs {
+  width: 32%;
+  display: inline-block;
+}
+
 li.active {
   border-top: 1px solid #76818E;
   border-right: 1px solid #76818E;
@@ -289,4 +294,12 @@ p#copyright, p#visitCounter {
   color: white;
 }
 
+@media only screen and (max-width: 531px) {
+  .glyphicon-eye-open, .glyphicon-sunglasses, .glyphicon-cutlery {
+    display: none;
+  }
 
+  li.navTabs {
+    font-size: 16px;
+  }
+}
