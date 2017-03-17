@@ -266,7 +266,7 @@ li.interestHolder {
   text-align: left;
 }
 
-#imgList1 {
+#imgList1, #imgList2 {
   text-align: left;
   white-space: initial !important;
 }
