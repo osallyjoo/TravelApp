@@ -270,4 +270,9 @@ $("#restaurantTab").on("click", function() {
 function inputValidation(testString) {
     //This function tests if the argument is alphanumeric and returns true or false accordingly
     return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(testString);
-}
+};
+
+$(document).ready(function(){
+	currentSearchTerm = "San Diego";
+	getCityInfo(currentSearchTerm);
+})

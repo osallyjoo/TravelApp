@@ -28,7 +28,7 @@ var googleObj = {
 		var thisLocation = this.currentLoc!==null?this.currentLoc:this.origin //set the location to the currentLocation or the original location if there is no current location
 		//The map object is initialized here
 		var newMap = new google.maps.Map(this.mapDestinationElem,{
-			zoom: 15,
+			zoom: 12,
 			center: thisLocation,
 		});
 		this.createMarker(thisLocation) //add marker to the first address found
