@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div id="recentSearches">
-                            <h3>Recent Searches</h3></div>
+                            <h3><span class="glyphicon glyphicon-bookmark"></span> Recent Searches</h3></div>
                     </div>
                 </div>
             </div>
@@ -56,20 +56,20 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation" class="navTabs active" id="overviewTab">Overview</li>
-                            <li class="navTabs inactive" id="activitiesTab">Activities</li>
-                            <li class="navTabs inactive" id="restaurantTab">Restaurants</li>
+                            <li role="presentation" class="navTabs active" id="overviewTab"><span class="glyphicon glyphicon-eye-open"></span>  Overview</li>
+                            <li class="navTabs inactive" id="activitiesTab"><span class="glyphicon glyphicon-sunglasses"></span>  Activities</li>
+                            <li class="navTabs inactive" id="restaurantTab"><span class="glyphicon glyphicon-cutlery"></span>  Restaurants</li>
                         </ul>
                         <!-- TAB 1 CONTENT -->
                         <div class="contentBox" id="overviewBox">
-                            <h3><span class="glyphicon glyphicon-cloud"></span>  Weather</h3>
+                            <h3><span class="glyphicon glyphicon-cloud"></span> Weather</h3>
                             <div id="weatherBox" class="overviewContent"></div>
-                            <h3><span class="glyphicon glyphicon-map-marker"></span> <span id="citySearched">Images</span></h3>
+                            <h3><span class="glyphicon glyphicon-camera"></span> <span id="citySearched"> Images</span></h3>
                             <div class="slidee"></div>
                         </div>
                         <!-- TAB 2 CONTENT -->
                         <div class="contentBox" id="activitiesBox">
-                            <h3>Points of Interest</h3>
+                            <h3><span class="glyphicon glyphicon-pushpin"></span> Points of Interest</h3>
                             <div class="row">
                                 <div class="col-md-12" id="pointsOfInterest" style="overflow: auto;">
                                     <ul id="imgList1" style="white-space: nowrap; list-style: none; display: table;"></ul>
@@ -82,7 +82,7 @@
                         </div>
                         <!-- TAB 3 CONTENT -->
                         <div class="contentBox" id="restaurantsBox">
-                            <h3> Nearby Restaurants</h3>
+                            <h3><span class="glyphicon glyphicon-star"></span> Nearby Restaurants</h3>
                             <div class="row">
                                 <div class="col-md-12" id="pointsOfInterest" style="overflow: auto">
                                     <ul id="imgList2" style="white-space: nowrap; list-style: none; display: table;"></ul>
@@ -100,6 +100,9 @@
     </div>
     <footer>
         <div id="visitCounter"></div>
+
+        <p id="copyright">Copyright &copy; 2017 Team Trippy</p>
+
     </footer>
     <!-- Call javascript files -->
     <script type="text/javascript" src="javascript/googleAPI_v2.js">
