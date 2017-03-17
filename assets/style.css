@@ -275,21 +275,18 @@ li.interestHolder {
 /* Footer */
 footer {
   position: fixed;
-  background-color:white;
+  background-color: #656e7a;
   bottom: 0;
   width: 100%;
-  height: 30px;
+  height: 40px;
 }
 
-#visitCounter {
-  position: fixed;
-  bottom: 0;
-}
-
-p#copyright {
+p#copyright, p#visitCounter {
   text-align: center;
-  padding-top: 2px;
+  padding-bottom: 0.5px;
   position: relative;
+  font-size: 10px;
+  color: white;
 }
 
 
