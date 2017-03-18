@@ -39,8 +39,6 @@ var currentSearchTerm = null; //this variable holds the latest search for when t
 // when the search button is clicked, do something
 populateSearchHistory();
 
-
-
 $("#searchBtn").on("click", function() {
     if ($("#searchTerm").val().length !== 0) {
         // use getSearchTerm function to clean up and get search term
@@ -73,12 +71,18 @@ $(document).on("click", ".searchHistoryTerms", function() {
 // when enter is pressed, get search term and run the functions
 $("#searchTerm").on("keyup", function(event) {
     if (event.key === "Enter" && $("#searchTerm").val().length !== 0) {
+        // call function to get search term
         var searchTerm = getSearchTerm();
         $("#citySearched").text(searchTerm);
+        // call APIs
         getCityInfo(searchTerm);
+        // put city in local storage
         pushToLocalStorage(searchTerm);
+        // put search on page
         putSearchTermOnPage(searchTerm);
+        // remove the text from search bar
         $("#searchTerm").val("");
+        // show overview tab.
         $(".navTabs").removeClass("active").addClass("inactive");
         $("#overviewTab").addClass("active").removeClass("inactive");
     } else {
@@ -120,11 +124,6 @@ function getCityInfo(searchTerm) {
 
     // call function to empty previous results
     clearBoxes();
-    // initialize map
-    // googleObj.mapDestinationElem = document.getElementById('map');
-    // googleObj.initialize();
-    // googleObj.getLocation(searchTerm);
-    //googleObj.getPlaces();
     // call weather API
     callWeather(searchTerm);
     // Call Pixabay API
@@ -184,24 +183,8 @@ function putSearchTermOnPage(searchTerm) {
     // update list on html page
     $("#recentSearches").append(newSearchTerm);
 }
-// function to check if searchTerm is already in Firebase
-function checkFirebaseForSearchTerm(searchTerm) {
-    ref.once("value")
-        .then(function(snapshot) {
-            var checkCounter = 0;
-            snapshot.forEach(function(childSnapshot) {
-                var cityName = childSnapshot.val().searchTerm;
-                if (cityName === searchTerm) {
-                    checkCounter++;
-                };
-            });
-        });
-    console.log(checkCounter)
-    return checkCounter;
-}
 
 // function to empty previous results
-
 function clearBoxes() {
     $(".wrapper").empty();
     $("#weatherBox").empty();
