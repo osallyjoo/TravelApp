@@ -312,6 +312,6 @@ p#copyright, p#visitCounter {
 
 .loginForm {
   width:200px;
-  float:right;
+  float:left;
   margin-bottom:20px;
 }

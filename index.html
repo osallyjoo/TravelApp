@@ -34,12 +34,17 @@
 
 <body>
     <div class="container">
-        <input type="text" autocomplete="off" class="form-control loginForm" placeholder="Username" id="userNameTerm">
-        <input type="password" autocomplete="off" class="form-control loginForm" placeholder="Password" id="passwordTerm">
-        <div class="btn btn-primary btn-sm" id="loginBtn">Login</div>
-        <div class="btn btn-default btn-sm" id="signUpBtn">Sign Up</div>
-        <div class="btn btn-warning btn-sm" id="signOutBtn">Sign Out</div>
-        <div id="usernameDisplay"></div>
+        <div class="col-xs-8 pull-right hide" id="signInElements">
+            <input type="text" autocomplete="off" class="form-control loginForm" placeholder="Username" id="userNameTerm">
+            <input type="password" autocomplete="off" class="form-control loginForm" placeholder="Password" id="passwordTerm">
+            <div class="btn btn-primary btn" id="loginBtn">Login</div>
+            <div class="btn btn-default btn" id="signUpBtn">Sign Up</div>
+            <div class="btn btn-warning btn" id="signOutBtn">Sign Out</div>
+            <!--<div id="usernameDisplay"></div>-->
+        </div>
+        <div class="col-xs-8 pull-right">
+            <div class="btn btn-info btn pull-right" id="signUpLogInBtn">Sign Up/Login</div>
+        </div>
     </div>
     <div class="container">
         <div class="row">

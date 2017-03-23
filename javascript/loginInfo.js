@@ -30,12 +30,22 @@ $("#signOutBtn").on("click", function () {
     $("#usernameDisplay").html("Not Logged In");
 });
 
+
+$("#signUpLogInBtn").on("click", function(){
+    console.log("clicked")
+    $("#signInElements").removeClass("hide");
+    $("#signUpLogInBtn").addClass("hide");
+})
+
 $(document).ready(function () {
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             $("#usernameDisplay").html(firebaseUser.email);
+            // hide the forms and buttons
         } else {
             console.log("not logged in");
+            //show the forms to log in 
         }
     });
 });
+
