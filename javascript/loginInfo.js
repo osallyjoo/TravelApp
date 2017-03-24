@@ -5,10 +5,10 @@ $("#loginBtn").on("click", function () {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.Message;
+        $("#userNameTerm").val(errorCode);
     });
     $("#userNameTerm").val("");
     $("#passwordTerm").val("");
-    console.log("You are logged in");
 });
 
 $("#signUpBtn").on("click", function () {
@@ -19,20 +19,20 @@ $("#signUpBtn").on("click", function () {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.Message;
+        $("#userNameTerm").val(errorCode);
     });
     $("#userNameTerm").val("");
     $("#passwordTerm").val("");
-    console.log("You are signed up");
 });
 
 $("#signOutBtn").on("click", function () {
     firebase.auth().signOut();
-    $("#usernameDisplay").html("Not Logged In");
+    $("#signOutBtn").addClass("hide");
+    $("#usernameDisplay").html("");
 });
 
 
 $("#signUpLogInBtn").on("click", function(){
-    console.log("clicked")
     $("#signInElements").removeClass("hide");
     $("#signUpLogInBtn").addClass("hide");
 })
@@ -40,11 +40,16 @@ $("#signUpLogInBtn").on("click", function(){
 $(document).ready(function () {
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
-            $("#usernameDisplay").html(firebaseUser.email);
+            console.log("logged in");
             // hide the forms and buttons
+            $("#signInElements").addClass("hide");
+            $("#signUpLogInBtn").addClass("hide");
+            $("#usernameDisplay").html("You are logged in as " + firebaseUser.email);
+            $("#signOutBtn").removeClass("hide");
         } else {
             console.log("not logged in");
-            //show the forms to log in 
+            //show the forms to log in
+            $("#signUpLogInBtn").removeClass("hide");
         }
     });
 });

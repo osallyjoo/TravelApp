@@ -34,17 +34,19 @@
 
 <body>
     <div class="container">
-        <div class="col-xs-8 pull-right hide" id="signInElements">
+        <div class="pull-right hide" id="signInElements">
             <input type="text" autocomplete="off" class="form-control loginForm" placeholder="Username" id="userNameTerm">
             <input type="password" autocomplete="off" class="form-control loginForm" placeholder="Password" id="passwordTerm">
             <div class="btn btn-primary btn" id="loginBtn">Login</div>
-            <div class="btn btn-default btn" id="signUpBtn">Sign Up</div>
-            <div class="btn btn-warning btn" id="signOutBtn">Sign Out</div>
-            <!--<div id="usernameDisplay"></div>-->
+            <div class="btn btn-primary btn" id="signUpBtn">Sign Up</div>
+                        <!--<div id="usernameDisplay"></div>-->
         </div>
-        <div class="col-xs-8 pull-right">
+        <div class="pull-right">
             <div class="btn btn-info btn pull-right" id="signUpLogInBtn">Sign Up/Login</div>
+            <div class="btn btn-primary btn pull-right hide" id="signOutBtn">Sign Out</div>
+            <div id="usernameDisplay"></div>
         </div>
+
     </div>
     <div class="container">
         <div class="row">
@@ -65,6 +67,9 @@
                         </div>
                         <div id="recentSearches">
                             <h3><span class="glyphicon glyphicon-bookmark"></span> Recent Searches</h3>
+                        </div>
+                        <div id="myTrips">
+                            <h3><span class="glyphicon glyphicon-bookmark"></span> My Trips</h3>
                         </div>
                     </div>
                 </div>

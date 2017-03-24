@@ -92,7 +92,7 @@ li.inactive {
   font-size: 21px;
 }
 
-#recentSearches {
+#recentSearches, #myTrips {
   background-color: white;
   padding: 10px 8px;
   border-radius: 4px;
