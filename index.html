@@ -13,9 +13,11 @@
     <!-- jQuery -->
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
     <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <!-- more jQuery? -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
     <!--Firebase-->
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
     <!--Moment-->
@@ -32,6 +34,21 @@
 
 <body>
     <div class="container">
+        <div class="pull-right hide" id="signInElements">
+            <input type="text" autocomplete="off" class="form-control loginForm" placeholder="Username" id="userNameTerm">
+            <input type="password" autocomplete="off" class="form-control loginForm" placeholder="Password" id="passwordTerm">
+            <div class="btn btn-primary btn" id="loginBtn">Login</div>
+            <div class="btn btn-primary btn" id="signUpBtn">Sign Up</div>
+                        <!--<div id="usernameDisplay"></div>-->
+        </div>
+        <div class="pull-right">
+            <div class="btn btn-info btn pull-right" id="signUpLogInBtn">Sign Up/Login</div>
+            <div class="btn btn-primary btn pull-right hide" id="signOutBtn">Sign Out</div>
+            <div id="usernameDisplay"></div>
+        </div>
+
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <div class="row">
@@ -45,10 +62,15 @@
                             <div class="form-group">
                                 <input type="text" autocomplete="off" class="form-control" placeholder="Search City" id="searchTerm">
                                 <div class="btn" id="searchBtn"><span class="glyphicon glyphicon-search"></span></div>
+
                             </div>
                         </div>
                         <div id="recentSearches">
-                            <h3><span class="glyphicon glyphicon-bookmark"></span> Recent Searches</h3></div>
+                            <h3><span class="glyphicon glyphicon-bookmark"></span> Recent Searches</h3>
+                        </div>
+                        <div id="myTrips">
+                            <h3><span class="glyphicon glyphicon-bookmark"></span> My Trips</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,9 +78,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation" class="navTabs active" id="overviewTab"><span class="glyphicon glyphicon-eye-open"></span>  Overview</li>
-                            <li class="navTabs inactive" id="activitiesTab"><span class="glyphicon glyphicon-sunglasses"></span>  Activities</li>
-                            <li class="navTabs inactive" id="restaurantTab"><span class="glyphicon glyphicon-cutlery"></span>  Restaurants</li>
+                            <li role="presentation" class="navTabs active" id="overviewTab"><span class="glyphicon glyphicon-eye-open"></span> Overview</li>
+                            <li class="navTabs inactive" id="activitiesTab"><span class="glyphicon glyphicon-sunglasses"></span> Activities</li>
+                            <li class="navTabs inactive" id="restaurantTab"><span class="glyphicon glyphicon-cutlery"></span> Restaurants</li>
                         </ul>
                         <!-- TAB 1 CONTENT -->
                         <div class="contentBox" id="overviewBox">
@@ -104,11 +126,11 @@
     </footer>
     <!-- Call javascript files -->
     <script type="text/javascript" src="javascript/googleAPI_v2.js"></script>
+    <script type="text/javascript" src="javascript/loginInfo.js"></script>
     <script type="text/javascript" src="javascript/pixabay.js"></script>
     <script type="text/javascript" src="javascript/weather.js"></script>
     <script type="text/javascript" src="javascript/autocompleteAPI.js"></script>
     <script type="text/javascript" src="javascript/searchFunction.js"></script>
-    <script type="text/javascript" src="javascript/newsAPI.js"></script>
 </body>
 
 </html>
