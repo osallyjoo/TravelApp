@@ -1,5 +1,6 @@
 body {
   padding: 45px 0;
+  padding-top: 10px;
   font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: #c0ede8;
 }
@@ -91,7 +92,7 @@ li.inactive {
   font-size: 21px;
 }
 
-#recentSearches {
+#recentSearches, #myTrips {
   background-color: white;
   padding: 10px 8px;
   border-radius: 4px;
@@ -307,4 +308,10 @@ p#copyright, p#visitCounter {
   li.navTabs {
     font-size: 16px;
   }
+}
+
+.loginForm {
+  width:200px;
+  float:left;
+  margin-bottom:20px;
 }
